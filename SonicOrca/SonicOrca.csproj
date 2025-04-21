@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Games\S2HD_2.0.1012-rc2\SonicOrca.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{316EEA62-0F1E-4531-9D67-F13F5AE4AF32}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>SonicOrca</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <ApplicationVersion>2.0.1012.10518</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accord">
+      <HintPath>lib\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Video.FFMPEG.x64">
+      <HintPath>lib\Accord.Video.FFMPEG.x64.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SonicOrca.Common">
+      <HintPath>lib\SonicOrca.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SonicOrca.Resources">
+      <HintPath>lib\SonicOrca.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SonicOrca\ComplexNumber.cs" />
+    <Compile Include="SonicOrca\Controller.cs" />
+    <Compile Include="SonicOrca\CsvSheet.cs" />
+    <Compile Include="SonicOrca\EaseTimeline.cs" />
+    <Compile Include="SonicOrca\IAudioSettings.cs" />
+    <Compile Include="SonicOrca\IGameState.cs" />
+    <Compile Include="SonicOrca\IVideoSettings.cs" />
+    <Compile Include="SonicOrca\SonicOrcaGameContext.cs" />
+    <Compile Include="SonicOrca\IniConfiguration.cs" />
+    <Compile Include="SonicOrca\IPlatform.cs" />
+    <Compile Include="SonicOrca\MathX.cs" />
+    <Compile Include="SonicOrca\SonicOrcaInfo.cs" />
+    <Compile Include="SonicOrca\Updater.cs" />
+    <Compile Include="SonicOrca\UpdateResult.cs" />
+    <Compile Include="SonicOrca\UpdateResultType.cs" />
+    <Compile Include="SonicOrca\Original\BitReader.cs" />
+    <Compile Include="SonicOrca\Original\BitWriter.cs" />
+    <Compile Include="SonicOrca\Original\Kosinski.cs" />
+    <Compile Include="SonicOrca\Original\Mappings.cs" />
+    <Compile Include="SonicOrca\Original\NemesisException.cs" />
+    <Compile Include="SonicOrca\Original\Nemesis.cs" />
+    <Compile Include="SonicOrca\Original\ObjectPlacements.cs" />
+    <Compile Include="SonicOrca\Original\RingPositions.cs" />
+    <Compile Include="SonicOrca\Menu\FadeTransition.cs" />
+    <Compile Include="SonicOrca\Menu\Screen.cs" />
+    <Compile Include="SonicOrca\Menu\ScreenLoadingProgress.cs" />
+    <Compile Include="SonicOrca\Menu\ScreenState.cs" />
+    <Compile Include="SonicOrca\Input\GamePadInputState.cs" />
+    <Compile Include="SonicOrca\Input\GamePadOutputState.cs" />
+    <Compile Include="SonicOrca\Input\InputContext.cs" />
+    <Compile Include="SonicOrca\Input\InputState.cs" />
+    <Compile Include="SonicOrca\Input\InputStateEventType.cs" />
+    <Compile Include="SonicOrca\Input\KeyboardState.cs" />
+    <Compile Include="SonicOrca\Input\MouseState.cs" />
+    <Compile Include="SonicOrca\Input\OutputState.cs" />
+    <Compile Include="SonicOrca\HelperLibraries\Png\PngResourceType.cs" />
+    <Compile Include="SonicOrca\HelperLibraries\OggVorbis\OggDecodeStream.cs" />
+    <Compile Include="SonicOrca\HelperLibraries\OggVorbis\OggResourceType.cs" />
+    <Compile Include="SonicOrca\HelperLibraries\H264\H264ResourceType.cs" />
+    <Compile Include="SonicOrca\Graphics\Resolution.cs" />
+    <Compile Include="SonicOrca\Graphics\TextRenderingHelpers.cs" />
+    <Compile Include="SonicOrca\Graphics\IBuffer.cs" />
+    <Compile Include="SonicOrca\Graphics\IFontRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\IFramebuffer.cs" />
+    <Compile Include="SonicOrca\Graphics\IGraphicsContext.cs" />
+    <Compile Include="SonicOrca\Graphics\ICharacterRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\IHeatRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\IMaskRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\INonLayerRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\IRendererFactory.cs" />
+    <Compile Include="SonicOrca\Graphics\IWaterRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\IShader.cs" />
+    <Compile Include="SonicOrca\Graphics\IShaderProgram.cs" />
+    <Compile Include="SonicOrca\Graphics\ITileRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\IVertexArray.cs" />
+    <Compile Include="SonicOrca\Graphics\ManagedShaderProgram.cs" />
+    <Compile Include="SonicOrca\Graphics\OrcaShader.cs" />
+    <Compile Include="SonicOrca\Graphics\PolygonMode.cs" />
+    <Compile Include="SonicOrca\Graphics\PrimitiveType.cs" />
+    <Compile Include="SonicOrca\Graphics\ShaderInstance.cs" />
+    <Compile Include="SonicOrca\Graphics\ShaderType.cs" />
+    <Compile Include="SonicOrca\Graphics\TextRenderInfo.cs" />
+    <Compile Include="SonicOrca\Graphics\TextureWrapping.cs" />
+    <Compile Include="SonicOrca\Graphics\VertexAttributeAttribute.cs" />
+    <Compile Include="SonicOrca\Graphics\VertexAttributePointerType.cs" />
+    <Compile Include="SonicOrca\Graphics\VertexAttributeTypeAttribute.cs" />
+    <Compile Include="SonicOrca\Graphics\VertexBuffer.cs" />
+    <Compile Include="SonicOrca\Graphics\VideoMode.cs" />
+    <Compile Include="SonicOrca\Graphics\Font.cs" />
+    <Compile Include="SonicOrca\Graphics\FontAlignment.cs" />
+    <Compile Include="SonicOrca\Graphics\FontResourceType.cs" />
+    <Compile Include="SonicOrca\Graphics\Animation.cs" />
+    <Compile Include="SonicOrca\Graphics\AnimationGroup.cs" />
+    <Compile Include="SonicOrca\Graphics\AnimationGroupResourceType.cs" />
+    <Compile Include="SonicOrca\Graphics\AnimationInstance.cs" />
+    <Compile Include="SonicOrca\Graphics\BlendMode.cs" />
+    <Compile Include="SonicOrca\Graphics\Colour.cs" />
+    <Compile Include="SonicOrca\Graphics\Colours.cs" />
+    <Compile Include="SonicOrca\Graphics\IFadeTransitionRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\ILevelRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\I2dRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\IObjectRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\IRenderer.cs" />
+    <Compile Include="SonicOrca\Graphics\ITexture.cs" />
+    <Compile Include="SonicOrca\Graphics\Renderer.cs" />
+    <Compile Include="SonicOrca\Graphics\TextureFiltering.cs" />
+    <Compile Include="SonicOrca\Graphics\WindowContext.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Video\FilmGroupResourceType.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Video\FilmBuffer.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Video\IFilmBuffer.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Video\FilmInstance.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Video\FilmGroup.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Video\Film.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionInstance.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionLayerAnimatableTransform.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionLayer.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionLayerPositionTween.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionLayerOpacityTween.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionLayerRotationTween.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionLayerScaleTween.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionLayerTween.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionAsset.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionGroup.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\SemiNumericComparer.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\CompositionGroupResourceType.cs" />
+    <Compile Include="SonicOrca\Graphics\V2\Animation\Composition.cs" />
+    <Compile Include="SonicOrca\Graphics\LowLevel\LowLevelExtensions.cs" />
+    <Compile Include="SonicOrca\Graphics\LowLevel\vec2.cs" />
+    <Compile Include="SonicOrca\Graphics\LowLevel\vec3.cs" />
+    <Compile Include="SonicOrca\Graphics\LowLevel\vec4.cs" />
+    <Compile Include="SonicOrca\Geometry\Ellipse.cs" />
+    <Compile Include="SonicOrca\Geometry\IBounds.cs" />
+    <Compile Include="SonicOrca\Geometry\Matrix4.cs" />
+    <Compile Include="SonicOrca\Geometry\QuadTree`1.cs" />
+    <Compile Include="SonicOrca\Geometry\Rectangle.cs" />
+    <Compile Include="SonicOrca\Geometry\Rectanglei.cs" />
+    <Compile Include="SonicOrca\Geometry\Size.cs" />
+    <Compile Include="SonicOrca\Geometry\Sizei.cs" />
+    <Compile Include="SonicOrca\Geometry\Vector2.cs" />
+    <Compile Include="SonicOrca\Geometry\Vector2i.cs" />
+    <Compile Include="SonicOrca\Geometry\Vector3.cs" />
+    <Compile Include="SonicOrca\Geometry\Vector4.cs" />
+    <Compile Include="SonicOrca\Geometry\Viewport.cs" />
+    <Compile Include="SonicOrca\Core\CharacterIntelligence.cs" />
+    <Compile Include="SonicOrca\Core\CharacterType.cs" />
+    <Compile Include="SonicOrca\Core\GameOverHud.cs" />
+    <Compile Include="SonicOrca\Core\ILevelTitleCard.cs" />
+    <Compile Include="SonicOrca\Core\LevelCompleteHud.cs" />
+    <Compile Include="SonicOrca\Core\LevelHud.cs" />
+    <Compile Include="SonicOrca\Core\Sonic2LevelTitleCard.cs" />
+    <Compile Include="SonicOrca\Core\InputRecordingResource.cs" />
+    <Compile Include="SonicOrca\Core\InputRecordingResourceType.cs" />
+    <Compile Include="SonicOrca\Core\LevelLoader.cs" />
+    <Compile Include="SonicOrca\Core\LevelScheme.cs" />
+    <Compile Include="SonicOrca\Core\LevelScreen.cs" />
+    <Compile Include="SonicOrca\Core\Area.cs" />
+    <Compile Include="SonicOrca\Core\AreaResourceType.cs" />
+    <Compile Include="SonicOrca\Core\CommonResources.cs" />
+    <Compile Include="SonicOrca\Core\ILevelLayerTreeNode.cs" />
+    <Compile Include="SonicOrca\Core\LevelDependencies.cs" />
+    <Compile Include="SonicOrca\Core\LevelDependenciesWriter.cs" />
+    <Compile Include="SonicOrca\Core\LevelDependenciesResourceType.cs" />
+    <Compile Include="SonicOrca\Core\LevelLayerGroup.cs" />
+    <Compile Include="SonicOrca\Core\LayerRowDefinition.cs" />
+    <Compile Include="SonicOrca\Core\LayerViewOptions.cs" />
+    <Compile Include="SonicOrca\Core\Level.cs" />
+    <Compile Include="SonicOrca\Core\LevelLayer.cs" />
+    <Compile Include="SonicOrca\Core\LevelLayerLighting.cs" />
+    <Compile Include="SonicOrca\Core\LevelLayerLightingType.cs" />
+    <Compile Include="SonicOrca\Core\LevelLayerShadow.cs" />
+    <Compile Include="SonicOrca\Core\LevelBinding.cs" />
+    <Compile Include="SonicOrca\Core\LevelMap.cs" />
+    <Compile Include="SonicOrca\Core\LevelBindingResourceType.cs" />
+    <Compile Include="SonicOrca\Core\LevelMapResourceType.cs" />
+    <Compile Include="SonicOrca\Core\LevelBindingWriter.cs" />
+    <Compile Include="SonicOrca\Core\LevelMarker.cs" />
+    <Compile Include="SonicOrca\Core\LevelPrepareSettings.cs" />
+    <Compile Include="SonicOrca\Core\LevelState.cs" />
+    <Compile Include="SonicOrca\Core\LevelStateFlags.cs" />
+    <Compile Include="SonicOrca\Core\LevelMapWriter.cs" />
+    <Compile Include="SonicOrca\Core\LightingType.cs" />
+    <Compile Include="SonicOrca\Core\Particle.cs" />
+    <Compile Include="SonicOrca\Core\ParticleManager.cs" />
+    <Compile Include="SonicOrca\Core\ParticleType.cs" />
+    <Compile Include="SonicOrca\Core\LevelGameState.cs" />
+    <Compile Include="SonicOrca\Core\ActiveObject.cs" />
+    <Compile Include="SonicOrca\Core\IActiveObject.cs" />
+    <Compile Include="SonicOrca\Core\ObjectClassification.cs" />
+    <Compile Include="SonicOrca\Core\ObjectEditorProperty.cs" />
+    <Compile Include="SonicOrca\Core\ObjectEditorPropertyInteger.cs" />
+    <Compile Include="SonicOrca\Core\ObjectEntry.cs" />
+    <Compile Include="SonicOrca\Core\ObjectDefinition.cs" />
+    <Compile Include="SonicOrca\Core\ObjectMapping.cs" />
+    <Compile Include="SonicOrca\Core\ObjectManager.cs" />
+    <Compile Include="SonicOrca\Core\ObjectPlacement.cs" />
+    <Compile Include="SonicOrca\Core\ObjectType.cs" />
+    <Compile Include="SonicOrca\Core\Player.cs" />
+    <Compile Include="SonicOrca\Core\PlayerDeathCause.cs" />
+    <Compile Include="SonicOrca\Core\PlayRecorder.cs" />
+    <Compile Include="SonicOrca\Core\ScriptImport.cs" />
+    <Compile Include="SonicOrca\Core\SonicOrcaConsole.cs" />
+    <Compile Include="SonicOrca\Core\JingleType.cs" />
+    <Compile Include="SonicOrca\Core\LevelSound.cs" />
+    <Compile Include="SonicOrca\Core\SoundManager.cs" />
+    <Compile Include="SonicOrca\Core\ITile.cs" />
+    <Compile Include="SonicOrca\Core\Tile.cs" />
+    <Compile Include="SonicOrca\Core\TileBlendMode.cs" />
+    <Compile Include="SonicOrca\Core\TileSequence.cs" />
+    <Compile Include="SonicOrca\Core\TileSet.cs" />
+    <Compile Include="SonicOrca\Core\Camera.cs" />
+    <Compile Include="SonicOrca\Core\CameraProperties.cs" />
+    <Compile Include="SonicOrca\Core\SplashType.cs" />
+    <Compile Include="SonicOrca\Core\Splash.cs" />
+    <Compile Include="SonicOrca\Core\WaterManager.cs" />
+    <Compile Include="SonicOrca\Core\Tiles\TileSetResourceType.cs" />
+    <Compile Include="SonicOrca\Core\SpecialStage\HalfPipeSpecialStageScreen.cs" />
+    <Compile Include="SonicOrca\Core\Sound\Sounds.cs" />
+    <Compile Include="SonicOrca\Core\Objects\BarrierType.cs" />
+    <Compile Include="SonicOrca\Core\Objects\CharacterLookDirection.cs" />
+    <Compile Include="SonicOrca\Core\Objects\GhostCharacterType.cs" />
+    <Compile Include="SonicOrca\Core\Objects\GhostCharacterInstance.cs" />
+    <Compile Include="SonicOrca\Core\Objects\ICharacter.cs" />
+    <Compile Include="SonicOrca\Core\Objects\IPlatform.cs" />
+    <Compile Include="SonicOrca\Core\Objects\ObjectEntryTable.cs" />
+    <Compile Include="SonicOrca\Core\Objects\ObjectTypeResourceType.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Metadata\ClassificationAttribute.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Metadata\DependencyAttribute.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Metadata\DescriptionAttribute.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Metadata\NameAttribute.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Metadata\ObjectInstanceAttribute.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Metadata\HideInEditorAttribute.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Metadata\StateVariableAttribute.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\Animal.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\Badnik.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\BossObject.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\Character.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\CharacterAnimation.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\CharacterBalanceDirection.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\CharacterEvent.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\CharacterHistoryItem.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\CharacterInputButtonState.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\CharacterInputState.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\CharacterSpecialState.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\CharacterState.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\Enemy.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\Fragment.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\ParticleObject.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\Platform.cs" />
+    <Compile Include="SonicOrca\Core\Objects\Base\Scenery.cs" />
+    <Compile Include="SonicOrca\Core\Network\IPacketRadio.cs" />
+    <Compile Include="SonicOrca\Core\Network\NetworkException.cs" />
+    <Compile Include="SonicOrca\Core\Network\NetworkGameClient.cs" />
+    <Compile Include="SonicOrca\Core\Network\NetworkGameServer.cs" />
+    <Compile Include="SonicOrca\Core\Network\NetworkManager.cs" />
+    <Compile Include="SonicOrca\Core\Network\NetworkPlayer.cs" />
+    <Compile Include="SonicOrca\Core\Network\Packet.cs" />
+    <Compile Include="SonicOrca\Core\Network\CharacterSynchronisationPacket.cs" />
+    <Compile Include="SonicOrca\Core\Network\ChatMessagePacket.cs" />
+    <Compile Include="SonicOrca\Core\Network\LevelSynchronisationPacket.cs" />
+    <Compile Include="SonicOrca\Core\Network\NotifyPacket.cs" />
+    <Compile Include="SonicOrca\Core\Network\PingPacket.cs" />
+    <Compile Include="SonicOrca\Core\Network\PlayInputPacket.cs" />
+    <Compile Include="SonicOrca\Core\Network\PongPacket.cs" />
+    <Compile Include="SonicOrca\Core\Network\ReceivedPacket.cs" />
+    <Compile Include="SonicOrca\Core\Network\PacketType.cs" />
+    <Compile Include="SonicOrca\Core\Network\UdpPacketRadio.cs" />
+    <Compile Include="SonicOrca\Core\Lighting\ILightingManager.cs" />
+    <Compile Include="SonicOrca\Core\Lighting\ILightSource.cs" />
+    <Compile Include="SonicOrca\Core\Lighting\IShadowInfo.cs" />
+    <Compile Include="SonicOrca\Core\Lighting\ShadowInfo.cs" />
+    <Compile Include="SonicOrca\Core\Lighting\LightingManager.cs" />
+    <Compile Include="SonicOrca\Core\Lighting\PointLightSource.cs" />
+    <Compile Include="SonicOrca\Core\Lighting\VectorLightSource.cs" />
+    <Compile Include="SonicOrca\Core\Extensions\ReflectionTypeExtensions.cs" />
+    <Compile Include="SonicOrca\Core\Extensions\LevelLayerExtensions.cs" />
+    <Compile Include="SonicOrca\Core\Debugging\DebugContext.cs" />
+    <Compile Include="SonicOrca\Core\Debugging\DebugOption.cs" />
+    <Compile Include="SonicOrca\Core\Debugging\DebugOptionDefinitions.cs" />
+    <Compile Include="SonicOrca\Core\Debugging\DebugPage.cs" />
+    <Compile Include="SonicOrca\Core\Debugging\DiscreteDebugOption`1.cs" />
+    <Compile Include="SonicOrca\Core\Debugging\InformationDebugOption.cs" />
+    <Compile Include="SonicOrca\Core\Collision\CollisionDirection.cs" />
+    <Compile Include="SonicOrca\Core\Collision\CollisionEvent.cs" />
+    <Compile Include="SonicOrca\Core\Collision\CollisionFlags.cs" />
+    <Compile Include="SonicOrca\Core\Collision\CollisionInfo.cs" />
+    <Compile Include="SonicOrca\Core\Collision\CollisionMode.cs" />
+    <Compile Include="SonicOrca\Core\Collision\CollisionRectangle.cs" />
+    <Compile Include="SonicOrca\Core\Collision\CollisionTable.cs" />
+    <Compile Include="SonicOrca\Core\Collision\CollisionVector.cs" />
+    <Compile Include="SonicOrca\Audio\AudioContext.cs" />
+    <Compile Include="SonicOrca\Audio\BasicSampleMixer.cs" />
+    <Compile Include="SonicOrca\Audio\BassFilter.cs" />
+    <Compile Include="SonicOrca\Audio\FastFourierTransform.cs" />
+    <Compile Include="SonicOrca\Audio\ISampleMixer.cs" />
+    <Compile Include="SonicOrca\Audio\ISampleProvider.cs" />
+    <Compile Include="SonicOrca\Audio\ResamplerStream.cs" />
+    <Compile Include="SonicOrca\Audio\Sample.cs" />
+    <Compile Include="SonicOrca\Audio\SampleGenerator.cs" />
+    <Compile Include="SonicOrca\Audio\SampleInfo.cs" />
+    <Compile Include="SonicOrca\Audio\SampleInfoResourceType.cs" />
+    <Compile Include="SonicOrca\Audio\SampleInstance.cs" />
+    <Compile Include="SonicOrca\Audio\SampleInstanceClassification.cs" />
+    <Compile Include="SonicOrca\Audio\SampleStream.cs" />
+    <Compile Include="SonicOrca\Audio\WaveSampleGenerator.cs" />
+    <Compile Include="SonicOrca\Audio\WavResourceType.cs" />
+    <Compile Include="Hjg\Pngcs\FileHelper.cs" />
+    <Compile Include="Hjg\Pngcs\FilterType.cs" />
+    <Compile Include="Hjg\Pngcs\FilterWriteStrategy.cs" />
+    <Compile Include="Hjg\Pngcs\ImageInfo.cs" />
+    <Compile Include="Hjg\Pngcs\ImageLine.cs" />
+    <Compile Include="Hjg\Pngcs\ImageLineHelper.cs" />
+    <Compile Include="Hjg\Pngcs\ImageLines.cs" />
+    <Compile Include="Hjg\Pngcs\PngCsUtils.cs" />
+    <Compile Include="Hjg\Pngcs\PngDeinterlacer.cs" />
+    <Compile Include="Hjg\Pngcs\PngHelperInternal.cs" />
+    <Compile Include="Hjg\Pngcs\PngIDatChunkInputStream.cs" />
+    <Compile Include="Hjg\Pngcs\PngIDatChunkOutputStream.cs" />
+    <Compile Include="Hjg\Pngcs\PngjBadCrcException.cs" />
+    <Compile Include="Hjg\Pngcs\PngjException.cs" />
+    <Compile Include="Hjg\Pngcs\PngjExceptionInternal.cs" />
+    <Compile Include="Hjg\Pngcs\PngjInputException.cs" />
+    <Compile Include="Hjg\Pngcs\PngjOutputException.cs" />
+    <Compile Include="Hjg\Pngcs\PngjUnsupportedException.cs" />
+    <Compile Include="Hjg\Pngcs\PngReader.cs" />
+    <Compile Include="Hjg\Pngcs\PngWriter.cs" />
+    <Compile Include="Hjg\Pngcs\ProgressiveOutputStream.cs" />
+    <Compile Include="Hjg\Pngcs\Zlib\Adler32.cs" />
+    <Compile Include="Hjg\Pngcs\Zlib\AZlibInputStream.cs" />
+    <Compile Include="Hjg\Pngcs\Zlib\AZlibOutputStream.cs" />
+    <Compile Include="Hjg\Pngcs\Zlib\CRC32.cs" />
+    <Compile Include="Hjg\Pngcs\Zlib\DeflateCompressLevel.cs" />
+    <Compile Include="Hjg\Pngcs\Zlib\EDeflateCompressStrategy.cs" />
+    <Compile Include="Hjg\Pngcs\Zlib\ZlibInputStreamMs.cs" />
+    <Compile Include="Hjg\Pngcs\Zlib\ZlibOutputStreamMs.cs" />
+    <Compile Include="Hjg\Pngcs\Zlib\ZlibStreamFactory.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunkCopyBehaviour.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunkHelper.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunkLoadBehaviour.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunkPredicate.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunkPredicateEquiv.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunkPredicateId.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunkPredicateId2.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunkRaw.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunksList.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\ChunksListForWrite.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunk.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkBKGD.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkCHRM.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkGAMA.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkHIST.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkICCP.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkIDAT.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkIEND.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkIHDR.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkITXT.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkMultiple.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkOFFS.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkPHYS.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkPLTE.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkSBIT.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkSingle.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkSkipped.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkSPLT.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkSRGB.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkSTER.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkTEXT.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkTextVar.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkTIME.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkTRNS.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkUNKNOWN.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngChunkZTXT.cs" />
+    <Compile Include="Hjg\Pngcs\Chunks\PngMetadata.cs" />
+    <Compile Include="csvorbis\AllocChain.cs" />
+    <Compile Include="csvorbis\Block.cs" />
+    <Compile Include="csvorbis\CodeBook.cs" />
+    <Compile Include="csvorbis\DecodeAux.cs" />
+    <Compile Include="csvorbis\Comment.cs" />
+    <Compile Include="csvorbis\csorbisException.cs" />
+    <Compile Include="csvorbis\Drft.cs" />
+    <Compile Include="csvorbis\DspState.cs" />
+    <Compile Include="csvorbis\EncodeAuxNearestMatch.cs" />
+    <Compile Include="csvorbis\EncodeAuxThreshMatch.cs" />
+    <Compile Include="csvorbis\Floor0.cs" />
+    <Compile Include="csvorbis\InfoFloor0.cs" />
+    <Compile Include="csvorbis\LookFloor0.cs" />
+    <Compile Include="csvorbis\EchstateFloor0.cs" />
+    <Compile Include="csvorbis\Floor1.cs" />
+    <Compile Include="csvorbis\InfoFloor1.cs" />
+    <Compile Include="csvorbis\LookFloor1.cs" />
+    <Compile Include="csvorbis\Lsfit_acc.cs" />
+    <Compile Include="csvorbis\EchstateFloor1.cs" />
+    <Compile Include="csvorbis\FuncFloor.cs" />
+    <Compile Include="csvorbis\FuncMapping.cs" />
+    <Compile Include="csvorbis\FuncResidue.cs" />
+    <Compile Include="csvorbis\FuncTime.cs" />
+    <Compile Include="csvorbis\Info.cs" />
+    <Compile Include="csvorbis\InfoMode.cs" />
+    <Compile Include="csvorbis\Lookup.cs" />
+    <Compile Include="csvorbis\Lpc.cs" />
+    <Compile Include="csvorbis\Lsp.cs" />
+    <Compile Include="csvorbis\Mapping0.cs" />
+    <Compile Include="csvorbis\InfoMapping0.cs" />
+    <Compile Include="csvorbis\LookMapping0.cs" />
+    <Compile Include="csvorbis\Mdct.cs" />
+    <Compile Include="csvorbis\PsyInfo.cs" />
+    <Compile Include="csvorbis\PsyLook.cs" />
+    <Compile Include="csvorbis\Residue0.cs" />
+    <Compile Include="csvorbis\LookResidue0.cs" />
+    <Compile Include="csvorbis\InfoResidue0.cs" />
+    <Compile Include="csvorbis\Residue1.cs" />
+    <Compile Include="csvorbis\Residue2.cs" />
+    <Compile Include="csvorbis\StaticCodeBook.cs" />
+    <Compile Include="csvorbis\Time0.cs" />
+    <Compile Include="csvorbis\VorbisFile.cs" />
+    <Compile Include="csogg\csBuffer.cs" />
+    <Compile Include="csogg\Packet.cs" />
+    <Compile Include="csogg\Page.cs" />
+    <Compile Include="csogg\StreamState.cs" />
+    <Compile Include="csogg\SyncState.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
