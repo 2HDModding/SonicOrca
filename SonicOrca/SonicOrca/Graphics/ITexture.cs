@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Graphics.ITexture
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -7,21 +7,23 @@
 using SonicOrca.Resources;
 using System;
 
-namespace SonicOrca.Graphics;
-
-public interface ITexture : IDisposable, ILoadedResource
+namespace SonicOrca.Graphics
 {
-  int Width { get; }
 
-  int Height { get; }
+    public interface ITexture : IDisposable, ILoadedResource
+    {
+      int Width { get; }
 
-  int Id { get; }
+      int Height { get; }
 
-  TextureFiltering Filtering { get; set; }
+      int Id { get; }
 
-  TextureWrapping Wrapping { get; set; }
+      TextureFiltering Filtering { get; set; }
 
-  byte[] GetArgbData();
+      TextureWrapping Wrapping { get; set; }
 
-  void SetArgbData(int width, int height, byte[] data);
+      byte[] GetArgbData();
+
+      void SetArgbData(int width, int height, byte[] data);
+    }
 }

@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Core.InputRecordingResource
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -8,23 +8,25 @@ using SonicOrca.Resources;
 using System;
 using System.IO;
 
-namespace SonicOrca.Core;
-
-public class InputRecordingResource : ILoadedResource, IDisposable
+namespace SonicOrca.Core
 {
-  public byte[] Data { get; }
 
-  public Resource Resource { get; set; }
+    public class InputRecordingResource : ILoadedResource, IDisposable
+    {
+      public byte[] Data { get; }
 
-  public InputRecordingResource(byte[] data) => this.Data = data;
+      public Resource Resource { get; set; }
 
-  public void Dispose()
-  {
-  }
+      public InputRecordingResource(byte[] data) => this.Data = data;
 
-  public void OnLoaded()
-  {
-  }
+      public void Dispose()
+      {
+      }
 
-  public System.IO.Stream GetStream() => (System.IO.Stream) new MemoryStream(this.Data);
+      public void OnLoaded()
+      {
+      }
+
+      public System.IO.Stream GetStream() => (System.IO.Stream) new MemoryStream(this.Data);
+    }
 }

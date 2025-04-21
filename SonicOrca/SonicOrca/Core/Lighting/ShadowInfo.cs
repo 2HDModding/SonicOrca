@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Core.Lighting.ShadowInfo
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -6,11 +6,13 @@
 
 using SonicOrca.Geometry;
 
-namespace SonicOrca.Core.Lighting;
-
-public class ShadowInfo : IShadowInfo
+namespace SonicOrca.Core.Lighting
 {
-  public Vector2i MaxShadowOffset { get; set; }
 
-  public Vector2i OcclusionSize { get; set; }
+    public class ShadowInfo : IShadowInfo
+    {
+      public Vector2i MaxShadowOffset { get; set; }
+
+      public Vector2i OcclusionSize { get; set; }
+    }
 }

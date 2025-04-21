@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.IGameState
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -7,11 +7,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace SonicOrca;
-
-public interface IGameState : IDisposable
+namespace SonicOrca
 {
-  IEnumerable<UpdateResult> Update();
 
-  void Draw();
+    public interface IGameState : IDisposable
+    {
+      IEnumerable<UpdateResult> Update();
+
+      void Draw();
+    }
 }

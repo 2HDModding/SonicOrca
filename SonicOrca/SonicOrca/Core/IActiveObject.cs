@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Core.IActiveObject
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -6,31 +6,33 @@
 
 using SonicOrca.Geometry;
 
-namespace SonicOrca.Core;
-
-public interface IActiveObject
+namespace SonicOrca.Core
 {
-  Level Level { get; }
 
-  ObjectType Type { get; }
+    public interface IActiveObject
+    {
+      Level Level { get; }
 
-  ObjectEntry Entry { get; }
+      ObjectType Type { get; }
 
-  LevelLayer Layer { get; set; }
+      ObjectEntry Entry { get; }
 
-  int Priority { get; set; }
+      LevelLayer Layer { get; set; }
 
-  Vector2i Position { get; set; }
+      int Priority { get; set; }
 
-  Vector2 PositionPrecise { get; set; }
+      Vector2i Position { get; set; }
 
-  Vector2i LastPosition { get; }
+      Vector2 PositionPrecise { get; set; }
 
-  Vector2 LastPositionPrecise { get; }
+      Vector2i LastPosition { get; }
 
-  float Brightness { get; set; }
+      Vector2 LastPositionPrecise { get; }
 
-  void Finish();
+      float Brightness { get; set; }
 
-  void FinishForever();
+      void Finish();
+
+      void FinishForever();
+    }
 }

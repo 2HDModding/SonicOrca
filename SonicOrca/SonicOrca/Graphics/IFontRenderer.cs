@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Graphics.IFontRenderer
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -6,66 +6,68 @@
 
 using SonicOrca.Geometry;
 
-namespace SonicOrca.Graphics;
-
-public interface IFontRenderer
+namespace SonicOrca.Graphics
 {
-  FontAlignment Alignment { get; set; }
 
-  Rectangle Boundary { get; set; }
+    public interface IFontRenderer
+    {
+      FontAlignment Alignment { get; set; }
 
-  Colour Colour { get; set; }
+      Rectangle Boundary { get; set; }
 
-  Font Font { get; set; }
+      Colour Colour { get; set; }
 
-  Rectangle Measure();
+      Font Font { get; set; }
 
-  int Overlay { get; set; }
+      Rectangle Measure();
 
-  void Render();
+      int Overlay { get; set; }
 
-  void RenderString(
-    string text,
-    Rectangle boundary,
-    FontAlignment fontAlignment,
-    Font font,
-    Colour colour,
-    int? overlay = null);
+      void Render();
 
-  void RenderString(
-    string text,
-    Rectangle boundary,
-    FontAlignment fontAlignment,
-    Font font,
-    int overlay);
+      void RenderString(
+        string text,
+        Rectangle boundary,
+        FontAlignment fontAlignment,
+        Font font,
+        Colour colour,
+        int? overlay = null);
 
-  void RenderStringWithShadow(
-    string text,
-    Rectangle boundary,
-    FontAlignment fontAlignment,
-    Font font,
-    Colour colour,
-    int? overlay = null);
+      void RenderString(
+        string text,
+        Rectangle boundary,
+        FontAlignment fontAlignment,
+        Font font,
+        int overlay);
 
-  void RenderStringWithShadow(
-    string text,
-    Rectangle boundary,
-    FontAlignment fontAlignment,
-    Font font,
-    Colour colour,
-    int? overlay,
-    Vector2i? shadow,
-    Colour shadowColour,
-    int? shadowOverlay = null);
+      void RenderStringWithShadow(
+        string text,
+        Rectangle boundary,
+        FontAlignment fontAlignment,
+        Font font,
+        Colour colour,
+        int? overlay = null);
 
-  void RenderStringWithShadow(
-    string text,
-    Rectangle boundary,
-    FontAlignment fontAlignment,
-    Font font,
-    int overlay);
+      void RenderStringWithShadow(
+        string text,
+        Rectangle boundary,
+        FontAlignment fontAlignment,
+        Font font,
+        Colour colour,
+        int? overlay,
+        Vector2i? shadow,
+        Colour shadowColour,
+        int? shadowOverlay = null);
 
-  Vector2 Shadow { get; set; }
+      void RenderStringWithShadow(
+        string text,
+        Rectangle boundary,
+        FontAlignment fontAlignment,
+        Font font,
+        int overlay);
 
-  string Text { get; set; }
+      Vector2 Shadow { get; set; }
+
+      string Text { get; set; }
+    }
 }

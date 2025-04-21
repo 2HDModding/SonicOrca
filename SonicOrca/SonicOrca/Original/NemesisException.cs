@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Original.NemesisException
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -7,27 +7,29 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace SonicOrca.Original;
-
-[Serializable]
-public class NemesisException : Exception
+namespace SonicOrca.Original
 {
-  public NemesisException()
-  {
-  }
 
-  public NemesisException(string message)
-    : base(message)
-  {
-  }
+    [Serializable]
+    public class NemesisException : Exception
+    {
+      public NemesisException()
+      {
+      }
 
-  public NemesisException(string message, Exception inner)
-    : base(message, inner)
-  {
-  }
+      public NemesisException(string message)
+        : base(message)
+      {
+      }
 
-  protected NemesisException(SerializationInfo info, StreamingContext context)
-    : base(info, context)
-  {
-  }
+      public NemesisException(string message, Exception inner)
+        : base(message, inner)
+      {
+      }
+
+      protected NemesisException(SerializationInfo info, StreamingContext context)
+        : base(info, context)
+      {
+      }
+    }
 }

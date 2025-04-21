@@ -1,16 +1,18 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Graphics.Resolution
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
 // Assembly location: C:\Games\S2HD_2.0.1012-rc2\SonicOrca.dll
 
-namespace SonicOrca.Graphics;
-
-public struct Resolution(int width, int height)
+namespace SonicOrca.Graphics
 {
-  public int Width { get; } = width;
 
-  public int Height { get; } = height;
+    public struct Resolution(int width, int height)
+    {
+      public int Width { get; } = width;
 
-  public override string ToString() => $"{this.Width} x {this.Height}";
+      public int Height { get; } = height;
+
+      public override string ToString() => $"{this.Width} x {this.Height}";
+    }
 }

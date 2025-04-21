@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Graphics.IGraphicsContext
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -6,62 +6,64 @@
 
 using System.Collections.Generic;
 
-namespace SonicOrca.Graphics;
-
-public interface IGraphicsContext
+namespace SonicOrca.Graphics
 {
-  IReadOnlyCollection<ITexture> Textures { get; }
 
-  IReadOnlyCollection<IShaderProgram> ShaderPrograms { get; }
+    public interface IGraphicsContext
+    {
+      IReadOnlyCollection<ITexture> Textures { get; }
 
-  IReadOnlyCollection<VertexBuffer> VertexBuffers { get; }
+      IReadOnlyCollection<IShaderProgram> ShaderPrograms { get; }
 
-  IReadOnlyCollection<IFramebuffer> RenderTargets { get; }
+      IReadOnlyCollection<VertexBuffer> VertexBuffers { get; }
 
-  bool DepthTesting { get; set; }
+      IReadOnlyCollection<IFramebuffer> RenderTargets { get; }
 
-  BlendMode BlendMode { get; set; }
+      bool DepthTesting { get; set; }
 
-  PolygonMode PolygonMode { get; set; }
+      BlendMode BlendMode { get; set; }
 
-  IFramebuffer CurrentFramebuffer { get; }
+      PolygonMode PolygonMode { get; set; }
 
-  IShader CreateShader(ShaderType type, string sourceCode);
+      IFramebuffer CurrentFramebuffer { get; }
 
-  IShaderProgram CreateShaderProgram(params IShader[] shaders);
+      IShader CreateShader(ShaderType type, string sourceCode);
 
-  IShaderProgram CreateShaderProgram(IEnumerable<IShader> shaders);
+      IShaderProgram CreateShaderProgram(params IShader[] shaders);
 
-  VertexBuffer CreateVertexBuffer(params int[] vectorCounts);
+      IShaderProgram CreateShaderProgram(IEnumerable<IShader> shaders);
 
-  VertexBuffer CreateVertexBuffer(IEnumerable<int> vectorCounts);
+      VertexBuffer CreateVertexBuffer(params int[] vectorCounts);
 
-  VertexBuffer CreateVertexBuffer(
-    IShaderProgram shaderProgram,
-    IEnumerable<string> names,
-    IEnumerable<int> vectorCounts);
+      VertexBuffer CreateVertexBuffer(IEnumerable<int> vectorCounts);
 
-  ITexture CreateTexture(int width, int height);
+      VertexBuffer CreateVertexBuffer(
+        IShaderProgram shaderProgram,
+        IEnumerable<string> names,
+        IEnumerable<int> vectorCounts);
 
-  ITexture CreateTexture(int width, int height, int channels, byte[] pixels, bool toCompress = false);
+      ITexture CreateTexture(int width, int height);
 
-  void SetTexture(ITexture texture);
+      ITexture CreateTexture(int width, int height, int channels, byte[] pixels, bool toCompress = false);
 
-  void SetTexture(int index, ITexture texture);
+      void SetTexture(ITexture texture);
 
-  void SetTextures(IEnumerable<ITexture> textures);
+      void SetTexture(int index, ITexture texture);
 
-  IFramebuffer CreateFrameBuffer(int width, int height, int numTextures = 1);
+      void SetTextures(IEnumerable<ITexture> textures);
 
-  void RenderToBackBuffer();
+      IFramebuffer CreateFrameBuffer(int width, int height, int numTextures = 1);
 
-  void ClearBuffer();
+      void RenderToBackBuffer();
 
-  void ClearDepthBuffer();
+      void ClearBuffer();
 
-  void ClearColourBuffer(int index);
+      void ClearDepthBuffer();
 
-  IBuffer CreateBuffer();
+      void ClearColourBuffer(int index);
 
-  IVertexArray CreateVertexArray();
+      IBuffer CreateBuffer();
+
+      IVertexArray CreateVertexArray();
+    }
 }

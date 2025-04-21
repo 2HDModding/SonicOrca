@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Core.Network.NetworkException
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -7,27 +7,29 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace SonicOrca.Core.Network;
-
-[Serializable]
-internal class NetworkException : Exception
+namespace SonicOrca.Core.Network
 {
-  public NetworkException()
-  {
-  }
 
-  public NetworkException(string message)
-    : base(message)
-  {
-  }
+    [Serializable]
+    internal class NetworkException : Exception
+    {
+      public NetworkException()
+      {
+      }
 
-  public NetworkException(string message, Exception inner)
-    : base(message, inner)
-  {
-  }
+      public NetworkException(string message)
+        : base(message)
+      {
+      }
 
-  protected NetworkException(SerializationInfo info, StreamingContext context)
-    : base(info, context)
-  {
-  }
+      public NetworkException(string message, Exception inner)
+        : base(message, inner)
+      {
+      }
+
+      protected NetworkException(SerializationInfo info, StreamingContext context)
+        : base(info, context)
+      {
+      }
+    }
 }

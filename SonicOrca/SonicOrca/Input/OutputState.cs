@@ -1,12 +1,14 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Input.OutputState
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
 // Assembly location: C:\Games\S2HD_2.0.1012-rc2\SonicOrca.dll
 
-namespace SonicOrca.Input;
-
-public class OutputState
+namespace SonicOrca.Input
 {
-  public GamePadOutputState[] GamePad { get; set; }
+
+    public class OutputState
+    {
+      public GamePadOutputState[] GamePad { get; set; }
+    }
 }

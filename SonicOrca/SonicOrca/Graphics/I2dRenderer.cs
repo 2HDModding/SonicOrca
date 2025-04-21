@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Graphics.I2dRenderer
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -8,54 +8,56 @@ using SonicOrca.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace SonicOrca.Graphics;
-
-public interface I2dRenderer : IDisposable, IRenderer
+namespace SonicOrca.Graphics
 {
-  BlendMode BlendMode { get; set; }
 
-  Rectangle ClipRectangle { get; set; }
+    public interface I2dRenderer : IDisposable, IRenderer
+    {
+      BlendMode BlendMode { get; set; }
 
-  Colour Colour { get; set; }
+      Rectangle ClipRectangle { get; set; }
 
-  Colour AdditiveColour { get; set; }
+      Colour Colour { get; set; }
 
-  Matrix4 ModelMatrix { get; set; }
+      Colour AdditiveColour { get; set; }
 
-  IDisposable BeginMatixState();
+      Matrix4 ModelMatrix { get; set; }
 
-  void RenderQuad(Colour colour, Rectangle destination);
+      IDisposable BeginMatixState();
 
-  void RenderEllipse(
-    Colour colour,
-    Vector2 centre,
-    double innerRadius,
-    double outerRadius,
-    int sectors);
+      void RenderQuad(Colour colour, Rectangle destination);
 
-  void RenderRectangle(Colour colour, Rectangle destination, double tickness);
+      void RenderEllipse(
+        Colour colour,
+        Vector2 centre,
+        double innerRadius,
+        double outerRadius,
+        int sectors);
 
-  void RenderLine(Colour colour, Vector2 a, Vector2 b, double thickness);
+      void RenderRectangle(Colour colour, Rectangle destination, double tickness);
 
-  void RenderTexture(ITexture texture, Rectangle destination, bool flipx = false, bool flipy = false);
+      void RenderLine(Colour colour, Vector2 a, Vector2 b, double thickness);
 
-  void RenderTexture(ITexture texture, Vector2 destination, bool flipx = false, bool flipy = false);
+      void RenderTexture(ITexture texture, Rectangle destination, bool flipx = false, bool flipy = false);
 
-  void RenderTexture(
-    ITexture texture,
-    Rectangle source,
-    Rectangle destination,
-    bool flipx = false,
-    bool flipy = false);
+      void RenderTexture(ITexture texture, Vector2 destination, bool flipx = false, bool flipy = false);
 
-  void RenderTexture(
-    IEnumerable<ITexture> texture,
-    Rectangle source,
-    Rectangle destination,
-    bool flipx = false,
-    bool flipy = false);
+      void RenderTexture(
+        ITexture texture,
+        Rectangle source,
+        Rectangle destination,
+        bool flipx = false,
+        bool flipy = false);
 
-  Rectangle RenderText(TextRenderInfo textRenderInfo);
+      void RenderTexture(
+        IEnumerable<ITexture> texture,
+        Rectangle source,
+        Rectangle destination,
+        bool flipx = false,
+        bool flipy = false);
 
-  Rectangle MeasureText(TextRenderInfo textRenderInfo);
+      Rectangle RenderText(TextRenderInfo textRenderInfo);
+
+      Rectangle MeasureText(TextRenderInfo textRenderInfo);
+    }
 }

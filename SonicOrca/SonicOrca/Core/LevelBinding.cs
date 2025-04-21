@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Core.LevelBinding
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -8,23 +8,25 @@ using SonicOrca.Resources;
 using System;
 using System.Collections.Generic;
 
-namespace SonicOrca.Core;
-
-public class LevelBinding : ILoadedResource, IDisposable
+namespace SonicOrca.Core
 {
-  private readonly List<ObjectPlacement> _objectPlacements = new List<ObjectPlacement>();
 
-  public Resource Resource { get; set; }
+    public class LevelBinding : ILoadedResource, IDisposable
+    {
+      private readonly List<ObjectPlacement> _objectPlacements = new List<ObjectPlacement>();
 
-  public IList<ObjectPlacement> ObjectPlacements => (IList<ObjectPlacement>) this._objectPlacements;
+      public Resource Resource { get; set; }
 
-  public Level Level { get; set; }
+      public IList<ObjectPlacement> ObjectPlacements => (IList<ObjectPlacement>) this._objectPlacements;
 
-  public void OnLoaded()
-  {
-  }
+      public Level Level { get; set; }
 
-  public void Dispose()
-  {
-  }
+      public void OnLoaded()
+      {
+      }
+
+      public void Dispose()
+      {
+      }
+    }
 }

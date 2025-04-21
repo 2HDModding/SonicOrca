@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Graphics.V2.Video.IFilmBuffer
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -7,19 +7,21 @@
 using SonicOrca.Resources;
 using System;
 
-namespace SonicOrca.Graphics.V2.Video;
-
-public interface IFilmBuffer : IDisposable, ILoadedResource
+namespace SonicOrca.Graphics.V2.Video
 {
-  int Width { get; }
 
-  int Height { get; }
+    public interface IFilmBuffer : IDisposable, ILoadedResource
+    {
+      int Width { get; }
 
-  double CurrentTime { get; }
+      int Height { get; }
 
-  double Duration { get; }
+      double CurrentTime { get; }
 
-  void Decode();
+      double Duration { get; }
 
-  byte[] GetArgbData();
+      void Decode();
+
+      byte[] GetArgbData();
+    }
 }

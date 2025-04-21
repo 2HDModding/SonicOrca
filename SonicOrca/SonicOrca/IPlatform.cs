@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.IPlatform
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -9,23 +9,25 @@ using SonicOrca.Graphics;
 using SonicOrca.Input;
 using System;
 
-namespace SonicOrca;
-
-public interface IPlatform : IDisposable
+namespace SonicOrca
 {
-  WindowContext Window { get; }
 
-  InputContext Input { get; }
+    public interface IPlatform : IDisposable
+    {
+      WindowContext Window { get; }
 
-  AudioContext Audio { get; }
+      InputContext Input { get; }
 
-  void Initialise();
+      AudioContext Audio { get; }
 
-  string GraphicsAPI { get; }
+      void Initialise();
 
-  string GraphicsVendor { get; }
+      string GraphicsAPI { get; }
 
-  int TotalMemory { get; }
+      string GraphicsVendor { get; }
 
-  Version GetOpenGLVersion();
+      int TotalMemory { get; }
+
+      Version GetOpenGLVersion();
+    }
 }

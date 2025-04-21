@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Graphics.IRenderer
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -6,9 +6,11 @@
 
 using System;
 
-namespace SonicOrca.Graphics;
-
-public interface IRenderer : IDisposable
+namespace SonicOrca.Graphics
 {
-  void Deactivate();
+
+    public interface IRenderer : IDisposable
+    {
+      void Deactivate();
+    }
 }

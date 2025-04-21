@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Graphics.ITileRenderer
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -8,34 +8,36 @@ using SonicOrca.Core;
 using SonicOrca.Geometry;
 using System;
 
-namespace SonicOrca.Graphics;
-
-public interface ITileRenderer : IRenderer, IDisposable
+namespace SonicOrca.Graphics
 {
-  Rectangle ClipRectangle { get; set; }
 
-  Matrix4 ModelMatrix { get; set; }
+    public interface ITileRenderer : IRenderer, IDisposable
+    {
+      Rectangle ClipRectangle { get; set; }
 
-  ITexture[] Textures { get; set; }
+      Matrix4 ModelMatrix { get; set; }
 
-  int Filter { get; set; }
+      ITexture[] Textures { get; set; }
 
-  double FilterAmount { get; set; }
+      int Filter { get; set; }
 
-  bool Rendering { get; }
+      double FilterAmount { get; set; }
 
-  int NumTiles { get; }
+      bool Rendering { get; }
 
-  void BeginRender();
+      int NumTiles { get; }
 
-  void AddTile(
-    Rectanglei source,
-    Rectanglei destination,
-    int textureIndex,
-    bool flipX = false,
-    bool flipY = false,
-    float opacity = 1f,
-    TileBlendMode blend = TileBlendMode.Alpha);
+      void BeginRender();
 
-  void EndRender();
+      void AddTile(
+        Rectanglei source,
+        Rectanglei destination,
+        int textureIndex,
+        bool flipX = false,
+        bool flipY = false,
+        float opacity = 1f,
+        TileBlendMode blend = TileBlendMode.Alpha);
+
+      void EndRender();
+    }
 }

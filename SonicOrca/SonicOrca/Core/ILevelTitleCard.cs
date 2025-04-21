@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Core.ILevelTitleCard
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -10,25 +10,27 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SonicOrca.Core;
-
-public interface ILevelTitleCard : IDisposable
+namespace SonicOrca.Core
 {
-  bool AllowLevelToStart { get; }
 
-  bool AllowCharacterControl { get; }
+    public interface ILevelTitleCard : IDisposable
+    {
+      bool AllowLevelToStart { get; }
 
-  bool Finished { get; }
+      bool AllowCharacterControl { get; }
 
-  bool Seamless { get; set; }
+      bool Finished { get; }
 
-  bool UnlockCamera { get; set; }
+      bool Seamless { get; set; }
 
-  Task LoadAsync(ResourceTree resourceTree, CancellationToken ct = default (CancellationToken));
+      bool UnlockCamera { get; set; }
 
-  void Update();
+      Task LoadAsync(ResourceTree resourceTree, CancellationToken ct = default (CancellationToken));
 
-  void Draw(Renderer renderer);
+      void Update();
 
-  void Start();
+      void Draw(Renderer renderer);
+
+      void Start();
+    }
 }

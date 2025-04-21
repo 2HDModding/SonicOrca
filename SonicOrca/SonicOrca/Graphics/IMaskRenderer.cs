@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Graphics.IMaskRenderer
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -7,33 +7,35 @@
 using SonicOrca.Geometry;
 using System;
 
-namespace SonicOrca.Graphics;
-
-public interface IMaskRenderer : IDisposable
+namespace SonicOrca.Graphics
 {
-  ITexture Texture { get; set; }
 
-  Rectanglei Source { get; set; }
+    public interface IMaskRenderer : IDisposable
+    {
+      ITexture Texture { get; set; }
 
-  Rectanglei Destination { get; set; }
+      Rectanglei Source { get; set; }
 
-  ITexture MaskTexture { get; set; }
+      Rectanglei Destination { get; set; }
 
-  Rectanglei MaskSource { get; set; }
+      ITexture MaskTexture { get; set; }
 
-  Rectanglei MaskDestination { get; set; }
+      Rectanglei MaskSource { get; set; }
 
-  BlendMode BlendMode { get; set; }
+      Rectanglei MaskDestination { get; set; }
 
-  Colour Colour { get; set; }
+      BlendMode BlendMode { get; set; }
 
-  Matrix4 IntersectionModelMatrix { get; set; }
+      Colour Colour { get; set; }
 
-  Matrix4 TargetModelMatrix { get; set; }
+      Matrix4 IntersectionModelMatrix { get; set; }
 
-  Matrix4 MaskModelMatrix { get; set; }
+      Matrix4 TargetModelMatrix { get; set; }
 
-  IDisposable BeginMatixState();
+      Matrix4 MaskModelMatrix { get; set; }
 
-  void Render(bool maskColorMultiply = false);
+      IDisposable BeginMatixState();
+
+      void Render(bool maskColorMultiply = false);
+    }
 }

@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Core.Area
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -10,65 +10,67 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SonicOrca.Core;
-
-public abstract class Area : IDisposable, ILoadedResource
+namespace SonicOrca.Core
 {
-  private readonly string[] _dependencies;
 
-  public Resource Resource { get; set; }
+    public abstract class Area : IDisposable, ILoadedResource
+    {
+      private readonly string[] _dependencies;
 
-  public IReadOnlyCollection<string> Dependencies
-  {
-    get => (IReadOnlyCollection<string>) this._dependencies;
-  }
+      public Resource Resource { get; set; }
 
-  public virtual IEnumerable<KeyValuePair<string, object>> StateVariables
-  {
-    get => Enumerable.Empty<KeyValuePair<string, object>>();
-  }
+      public IReadOnlyCollection<string> Dependencies
+      {
+        get => (IReadOnlyCollection<string>) this._dependencies;
+      }
 
-  public Area(IEnumerable<string> dependencies)
-  {
-    this._dependencies = dependencies.ToArray<string>();
-  }
+      public virtual IEnumerable<KeyValuePair<string, object>> StateVariables
+      {
+        get => Enumerable.Empty<KeyValuePair<string, object>>();
+      }
 
-  public abstract void Prepare(Level level, LevelPrepareSettings settings);
+      public Area(IEnumerable<string> dependencies)
+      {
+        this._dependencies = dependencies.ToArray<string>();
+      }
 
-  public virtual void OnStart()
-  {
-  }
+      public abstract void Prepare(Level level, LevelPrepareSettings settings);
 
-  public virtual void OnUpdate()
-  {
-  }
+      public virtual void OnStart()
+      {
+      }
 
-  public virtual void OnComplete()
-  {
-  }
+      public virtual void OnUpdate()
+      {
+      }
 
-  public virtual void OnPause()
-  {
-  }
+      public virtual void OnComplete()
+      {
+      }
 
-  public virtual void OnUnpause()
-  {
-  }
+      public virtual void OnPause()
+      {
+      }
 
-  public void OnLoaded()
-  {
-  }
+      public virtual void OnUnpause()
+      {
+      }
 
-  public virtual void Dispose()
-  {
-  }
+      public void OnLoaded()
+      {
+      }
 
-  protected void ExtendSeamlessLevelBounds(Level level, Rectanglei newRegion)
-  {
-    newRegion.Left = Math.Min(newRegion.Left, level.Bounds.Left);
-    newRegion.Top = Math.Min(newRegion.Top, level.Bounds.Top);
-    newRegion.Right = Math.Max(newRegion.Right, level.Bounds.Right);
-    newRegion.Bottom = Math.Max(newRegion.Bottom, level.Bounds.Bottom);
-    level.SeamlessNextBounds = newRegion;
-  }
+      public virtual void Dispose()
+      {
+      }
+
+      protected void ExtendSeamlessLevelBounds(Level level, Rectanglei newRegion)
+      {
+        newRegion.Left = Math.Min(newRegion.Left, level.Bounds.Left);
+        newRegion.Top = Math.Min(newRegion.Top, level.Bounds.Top);
+        newRegion.Right = Math.Max(newRegion.Right, level.Bounds.Right);
+        newRegion.Bottom = Math.Max(newRegion.Bottom, level.Bounds.Bottom);
+        level.SeamlessNextBounds = newRegion;
+      }
+    }
 }

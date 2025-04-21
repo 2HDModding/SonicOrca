@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Core.Objects.ICharacter
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -10,123 +10,125 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System.Collections.Generic;
 
-namespace SonicOrca.Core.Objects;
-
-public interface ICharacter : IActiveObject
+namespace SonicOrca.Core.Objects
 {
-  CharacterSpecialState SpecialState { get; set; }
 
-  bool Jumped { get; set; }
+    public interface ICharacter : IActiveObject
+    {
+      CharacterSpecialState SpecialState { get; set; }
 
-  bool IsJumping { get; set; }
+      bool Jumped { get; set; }
 
-  bool IsObjectControlled { get; set; }
+      bool IsJumping { get; set; }
 
-  bool ShouldReactToLevel { get; }
+      bool IsObjectControlled { get; set; }
 
-  IReadOnlyList<CharacterHistoryItem> History { get; }
+      bool ShouldReactToLevel { get; }
 
-  ActiveObject ObjectLink { get; set; }
+      IReadOnlyList<CharacterHistoryItem> History { get; }
 
-  object ObjectTag { get; set; }
+      ActiveObject ObjectLink { get; set; }
 
-  int Path { get; set; }
+      object ObjectTag { get; set; }
 
-  CharacterState StateFlags { get; set; }
+      int Path { get; set; }
 
-  AnimationInstance Animation { get; }
+      CharacterState StateFlags { get; set; }
 
-  Player Player { get; set; }
+      AnimationInstance Animation { get; }
 
-  bool IsSidekick { get; set; }
+      Player Player { get; set; }
 
-  Vector2 Velocity { get; set; }
+      bool IsSidekick { get; set; }
 
-  double GroundVelocity { get; set; }
+      Vector2 Velocity { get; set; }
 
-  CharacterLookDirection LookDirection { get; set; }
+      double GroundVelocity { get; set; }
 
-  double ShowAngle { get; set; }
+      CharacterLookDirection LookDirection { get; set; }
 
-  int LookDelay { get; set; }
+      double ShowAngle { get; set; }
 
-  CharacterInputState Input { get; set; }
+      int LookDelay { get; set; }
 
-  int Facing { get; set; }
+      CharacterInputState Input { get; set; }
 
-  bool IsAirborne { get; set; }
+      int Facing { get; set; }
 
-  bool IsDeadly { get; }
+      bool IsAirborne { get; set; }
 
-  bool IsSpinball { get; set; }
+      bool IsDeadly { get; }
 
-  bool IsUnderwater { get; set; }
+      bool IsSpinball { get; set; }
 
-  bool IsRollJumping { get; set; }
+      bool IsUnderwater { get; set; }
 
-  bool IsHurt { get; set; }
+      bool IsRollJumping { get; set; }
 
-  int BreathTicks { get; set; }
+      bool IsHurt { get; set; }
 
-  BarrierType Barrier { get; set; }
+      int BreathTicks { get; set; }
 
-  bool HasBarrier { get; }
+      BarrierType Barrier { get; set; }
 
-  bool ForceSpinball { get; set; }
+      bool HasBarrier { get; }
 
-  void Hurt(int direction, PlayerDeathCause cause = PlayerDeathCause.Hurt);
+      bool ForceSpinball { get; set; }
 
-  bool IsCharging { get; }
+      void Hurt(int direction, PlayerDeathCause cause = PlayerDeathCause.Hurt);
 
-  bool Respawning { get; }
+      bool IsCharging { get; }
 
-  bool ExhibitsVirtualPlatform { get; set; }
+      bool Respawning { get; }
 
-  bool IsDebug { get; set; }
+      bool ExhibitsVirtualPlatform { get; set; }
 
-  double TumbleAngle { get; set; }
+      bool IsDebug { get; set; }
 
-  int TumbleTurns { get; set; }
+      double TumbleAngle { get; set; }
 
-  bool HasSpeedShoes { get; set; }
+      int TumbleTurns { get; set; }
 
-  bool IsInvincible { get; set; }
+      bool HasSpeedShoes { get; set; }
 
-  int SlopeLockTicks { get; set; }
+      bool IsInvincible { get; set; }
 
-  bool IsPushing { get; set; }
+      int SlopeLockTicks { get; set; }
 
-  bool IsDead { get; set; }
+      bool IsPushing { get; set; }
 
-  bool IsDying { get; set; }
+      bool IsDead { get; set; }
 
-  void Kill(PlayerDeathCause cause);
+      bool IsDying { get; set; }
 
-  void InhaleOxygen();
+      void Kill(PlayerDeathCause cause);
 
-  bool IsWinning { get; set; }
+      void InhaleOxygen();
 
-  CameraProperties CameraProperties { get; set; }
+      bool IsWinning { get; set; }
 
-  bool CheckCollision { get; set; }
+      CameraProperties CameraProperties { get; set; }
 
-  bool CheckLandscapeCollision { get; set; }
+      bool CheckCollision { get; set; }
 
-  bool CheckObjectCollision { get; set; }
+      bool CheckLandscapeCollision { get; set; }
 
-  int LedgeSensorRadius { get; }
+      bool CheckObjectCollision { get; set; }
 
-  Vector2i NormalCollisionRadius { get; }
+      int LedgeSensorRadius { get; }
 
-  Vector2i SpinballCollisionRadius { get; }
+      Vector2i NormalCollisionRadius { get; }
 
-  Vector2i CollisionRadius { get; }
+      Vector2i SpinballCollisionRadius { get; }
 
-  void LeaveGround();
+      Vector2i CollisionRadius { get; }
 
-  CollisionVector GroundVector { get; }
+      void LeaveGround();
 
-  CollisionMode Mode { get; set; }
+      CollisionVector GroundVector { get; }
 
-  bool CanBeHurt { get; }
+      CollisionMode Mode { get; set; }
+
+      bool CanBeHurt { get; }
+    }
 }

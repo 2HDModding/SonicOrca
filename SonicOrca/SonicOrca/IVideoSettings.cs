@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.IVideoSettings
 // Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
@@ -6,17 +6,19 @@
 
 using SonicOrca.Graphics;
 
-namespace SonicOrca;
-
-public interface IVideoSettings
+namespace SonicOrca
 {
-  VideoMode Mode { get; }
 
-  Resolution Resolution { get; }
+    public interface IVideoSettings
+    {
+      VideoMode Mode { get; }
 
-  bool EnableShadows { get; }
+      Resolution Resolution { get; }
 
-  bool EnableHeatEffects { get; }
+      bool EnableShadows { get; }
 
-  bool EnableWaterEffects { get; }
+      bool EnableHeatEffects { get; }
+
+      bool EnableWaterEffects { get; }
+    }
 }
