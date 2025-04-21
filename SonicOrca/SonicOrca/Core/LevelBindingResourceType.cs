@@ -52,54 +52,67 @@ namespace SonicOrca.Core
         return (ILoadedResource) levelBinding;
       }
 
-      private ObjectPlacement GetObjectPlacementFromXmlNode(XmlNode node, int defaultLayerIndex)
-      {
-        XmlNode node1 = node.SelectSingleNode("Common");
-        XmlNode entryNode1 = node.SelectSingleNode("Behaviour");
-        XmlNode entryNode2 = node.SelectSingleNode("Mappings");
-        XmlNode xmlNode1 = node1.SelectSingleNode("Key");
-        XmlNode xmlNode2 = node1.SelectSingleNode("Uid");
-        XmlNode xmlNode3 = node1.SelectSingleNode("Name");
-        XmlNode xmlNode4 = node1.SelectSingleNode("Layer");
-        XmlNode xmlNode5 = node1.SelectSingleNode("Position");
-        string s;
-        int result1;
-        if (xmlNode4 == null || !node1.TryGetNodeInnerText("Layer", out s) || !int.TryParse(s, out result1))
-          result1 = defaultLayerIndex;
-        Guid result2 = new Guid();
-        Guid.TryParse(xmlNode2.InnerText, out result2);
-        object obj = (object) new{  };
-        if (entryNode1 != null && entryNode1.HasChildNodes)
+        private ObjectPlacement GetObjectPlacementFromXmlNode(XmlNode node, int defaultLayerIndex)
         {
-          IEnumerable<KeyValuePair<string, object>> behaviour = this.ParseBehaviour(entryNode1);
-          ExpandoObject expandoObject = new ExpandoObject();
-          ICollection<KeyValuePair<string, object>> keyValuePairs = (ICollection<KeyValuePair<string, object>>) expandoObject;
-          foreach (KeyValuePair<string, object> keyValuePair in behaviour)
-            keyValuePairs.Add(keyValuePair);
-          obj = (object) expandoObject;
+            var commonNode = node.SelectSingleNode("Common");
+            var behaviourNode = node.SelectSingleNode("Behaviour");
+            var mappingsNode = node.SelectSingleNode("Mappings");
+
+            var keyNode = commonNode?.SelectSingleNode("Key");
+            var uidNode = commonNode?.SelectSingleNode("Uid");
+            var nameNode = commonNode?.SelectSingleNode("Name");
+            var layerNode = commonNode?.SelectSingleNode("Layer");
+            var posNode = commonNode?.SelectSingleNode("Position");
+
+            int layerIndex = defaultLayerIndex;
+            if (layerNode != null && commonNode.TryGetNodeInnerText("Layer", out string layerStr))
+            {
+                int.TryParse(layerStr, out layerIndex);
+            }
+
+            Guid uid = Guid.Empty;
+            if (uidNode != null && !string.IsNullOrEmpty(uidNode.InnerText))
+            {
+                Guid.TryParse(uidNode.InnerText, out uid);
+            }
+
+            Vector2i position = new Vector2i(0, 0);
+            if (posNode?.Attributes != null &&
+                int.TryParse(posNode.Attributes["X"]?.Value, out int x) &&
+                int.TryParse(posNode.Attributes["Y"]?.Value, out int y))
+            {
+                position = new Vector2i(x, y);
+            }
+
+            object behaviour = new { };
+            if (behaviourNode?.HasChildNodes == true)
+            {
+                var behaviourPairs = this.ParseBehaviour(behaviourNode);
+                var expando = new ExpandoObject() as IDictionary<string, object>;
+                foreach (var kvp in behaviourPairs)
+                {
+                    expando[kvp.Key] = kvp.Value;
+                }
+                behaviour = expando;
+            }
+
+            var objectPlacement = new ObjectPlacement(
+                keyNode?.InnerText ?? "",
+                uid,
+                nameNode?.InnerText ?? "",
+                layerIndex,
+                position,
+                behaviour
+            );
+
+            if (mappingsNode?.HasChildNodes == true)
+            {
+                objectPlacement.Mappings = new List<KeyValuePair<string, object>>(this.ParseBehaviour(mappingsNode));
+            }
+
+            return objectPlacement;
         }
-        // ISSUE: reference to a compiler-generated field
-        if (LevelBindingResourceType.\u003C\u003Eo__8.\u003C\u003Ep__0 == null)
-        {
-          // ISSUE: reference to a compiler-generated field
-          LevelBindingResourceType.\u003C\u003Eo__8.\u003C\u003Ep__0 = CallSite<Func<CallSite, Type, string, Guid, string, int, Vector2i, object, ObjectPlacement>>.Create(Binder.InvokeConstructor(CSharpBinderFlags.None, typeof (LevelBindingResourceType), (IEnumerable<CSharpArgumentInfo>) new CSharpArgumentInfo[7]
-          {
-            CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType | CSharpArgumentInfoFlags.IsStaticType, (string) null),
-            CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType, (string) null),
-            CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType, (string) null),
-            CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType, (string) null),
-            CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType, (string) null),
-            CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.UseCompileTimeType, (string) null),
-            CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.None, (string) null)
-          }));
-        }
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        ObjectPlacement placementFromXmlNode = LevelBindingResourceType.\u003C\u003Eo__8.\u003C\u003Ep__0.Target((CallSite) LevelBindingResourceType.\u003C\u003Eo__8.\u003C\u003Ep__0, typeof (ObjectPlacement), xmlNode1.InnerText, result2, xmlNode3.InnerText, result1, new Vector2i(int.Parse(xmlNode5.Attributes["X"].Value), int.Parse(xmlNode5.Attributes["Y"].Value)), obj);
-        if (entryNode2 != null && entryNode2.HasChildNodes)
-          placementFromXmlNode.Mappings = (IReadOnlyCollection<KeyValuePair<string, object>>) new List<KeyValuePair<string, object>>(this.ParseBehaviour(entryNode2));
-        return placementFromXmlNode;
-      }
+
 
       private IEnumerable<KeyValuePair<string, object>> ParseBehaviour(XmlNode entryNode)
       {
@@ -162,7 +175,7 @@ namespace SonicOrca.Core
           double result;
           double.TryParse(s1, NumberStyles.Float, (IFormatProvider) CultureInfo.InvariantCulture, out result);
           CultureInfo invariantCulture = CultureInfo.InvariantCulture;
-          double y;
+          double y = 0.0f;
           ref double local = ref y;
           double.TryParse(s2, NumberStyles.Float, (IFormatProvider) invariantCulture, out local);
           return (object) new Vector2(result, y);
@@ -173,7 +186,7 @@ namespace SonicOrca.Core
           string s4 = value.Trim('{', '}', ' ').Replace(" ", "").Split(',')[1].Split('=')[1];
           int result;
           int.TryParse(s3, out result);
-          int y;
+          int y = 0;
           ref int local = ref y;
           int.TryParse(s4, out local);
           return (object) new Vector2i(result, y);

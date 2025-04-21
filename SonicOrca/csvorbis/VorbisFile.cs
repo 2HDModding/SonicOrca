@@ -8,7 +8,6 @@ using csogg;
 using System;
 using System.IO;
 
-#nullable disable
 namespace csvorbis
 {
 

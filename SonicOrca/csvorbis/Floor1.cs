@@ -7,7 +7,6 @@
 using csogg;
 using System;
 
-#nullable disable
 namespace csvorbis
 {
 
@@ -152,7 +151,7 @@ namespace csvorbis
         0.000433230365f,
         0.0004613841f,
         0.0004913675f,
-        1f / (703f * Math.E),
+        1f / (703f * (float)Math.E),
         0.0005573062f,
         0.0005935231f,
         0.0006320936f,

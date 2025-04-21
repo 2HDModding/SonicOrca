@@ -4,6 +4,7 @@
 // MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
 // Assembly location: C:\Games\S2HD_2.0.1012-rc2\SonicOrca.dll
 
+// Decompiled and fixed for clarity and maintainability
 using SonicOrca.Extensions;
 using SonicOrca.Geometry;
 using SonicOrca.Resources;
@@ -16,58 +17,81 @@ using System.Xml;
 
 namespace SonicOrca.Graphics
 {
-
     internal class FontResourceType : ResourceType
     {
-      public override string Name => "font, xml";
+        public override string Name => "font, xml";
+        public override string DefaultExtension => ".font.xml";
+        public override bool CompressByDefault => true;
 
-      public override string DefaultExtension => ".font.xml";
+        public FontResourceType() : base(ResourceTypeIdentifier.Font) { }
 
-      public override bool CompressByDefault => true;
-
-      public FontResourceType()
-        : base(ResourceTypeIdentifier.Font)
-      {
-      }
-
-      public override async Task<ILoadedResource> LoadAsync(ResourceLoadArgs e, CancellationToken ct = default (CancellationToken))
-      {
-        FontResourceType fontResourceType = this;
-        XmlDocument xmlDocument = new XmlDocument();
-        await Task.Run((Action) (() => xmlDocument.Load(e.InputStream)));
-        XmlNode node = xmlDocument.SelectSingleNode("font");
-        string absolutePath = e.GetAbsolutePath(node.SelectSingleNode("shape").InnerText);
-        string[] array = node.SelectNodes("overlay").OfType<XmlNode>().Select<XmlNode, string>((Func<XmlNode, string>) (x => e.GetAbsolutePath(x.InnerText))).ToArray<string>();
-        int defaultWidth = int.Parse(node.GetNodeInnerText("width", "0"));
-        int height = int.Parse(node.GetNodeInnerText("height", "0"));
-        int tracking = int.Parse(node.GetNodeInnerText("tracking", "0"));
-        Vector2i? shadow = new Vector2i?();
-        XmlNode xmlNode = node.SelectSingleNode("shadow");
-        if (xmlNode != null)
-          shadow = new Vector2i?(new Vector2i(int.Parse(xmlNode.Attributes["x"].Value), int.Parse(xmlNode.Attributes["y"].Value)));
-        // ISSUE: reference to a compiler-generated method
-        IEnumerable<Font.CharacterDefinition> characterDefinitions = node.SelectNodes("chardefs/chardef").OfType<XmlNode>().Select<XmlNode, Font.CharacterDefinition>(new Func<XmlNode, Font.CharacterDefinition>(fontResourceType.\u003CLoadAsync\u003Eb__7_2));
-        e.PushDependency(absolutePath);
-        e.PushDependencies(array);
-        return (ILoadedResource) new Font(e.ResourceTree, absolutePath, (IEnumerable<string>) array, defaultWidth, height, tracking, shadow, characterDefinitions)
+        public override async Task<ILoadedResource> LoadAsync(ResourceLoadArgs e, CancellationToken ct = default)
         {
-          Resource = e.Resource
-        };
-      }
+            var xmlDocument = new XmlDocument();
+            await Task.Run(() => xmlDocument.Load(e.InputStream), ct);
 
-      private Font.CharacterDefinition ParseCharacterDefinition(XmlNode chardefNode)
-      {
-        int key = (int) chardefNode.Attributes["char"].Value.First<char>();
-        XmlNode xmlNode1 = chardefNode.SelectSingleNode("rect");
-        Rectanglei rectanglei = new Rectanglei(int.Parse(xmlNode1.Attributes["x"].Value), int.Parse(xmlNode1.Attributes["y"].Value), int.Parse(xmlNode1.Attributes["w"].Value), int.Parse(xmlNode1.Attributes["h"].Value));
-        XmlNode xmlNode2 = chardefNode.SelectSingleNode("offset");
-        Vector2i vector2i = xmlNode2 == null ? new Vector2i() : new Vector2i(int.Parse(xmlNode2.Attributes["x"].Value), int.Parse(xmlNode2.Attributes["y"].Value));
-        string s;
-        int num = chardefNode.TryGetNodeInnerText("width", out s) ? int.Parse(s) : rectanglei.Width;
-        Rectanglei sourceRectangle = rectanglei;
-        Vector2i offset = vector2i;
-        int width = num;
-        return new Font.CharacterDefinition((char) key, sourceRectangle, offset, width);
-      }
+            XmlNode root = xmlDocument.SelectSingleNode("font");
+            if (root == null)
+                throw new XmlException("Missing <font> root node.");
+
+            string shapePath = e.GetAbsolutePath(root.SelectSingleNode("shape")?.InnerText);
+
+            var overlays = root.SelectNodes("overlay")
+                               .OfType<XmlNode>()
+                               .Select(x => e.GetAbsolutePath(x.InnerText))
+                               .ToArray();
+
+            int defaultWidth = int.Parse(root.GetNodeInnerText("width", "0"));
+            int height = int.Parse(root.GetNodeInnerText("height", "0"));
+            int tracking = int.Parse(root.GetNodeInnerText("tracking", "0"));
+
+            Vector2i? shadow = null;
+            var shadowNode = root.SelectSingleNode("shadow");
+            if (shadowNode != null)
+            {
+                shadow = new Vector2i(
+                    int.Parse(shadowNode.Attributes["x"].Value),
+                    int.Parse(shadowNode.Attributes["y"].Value)
+                );
+            }
+
+            var characterDefinitions = root.SelectNodes("chardefs/chardef")
+                                           .OfType<XmlNode>()
+                                           .Select(ParseCharacterDefinition)
+                                           .ToList();
+
+            e.PushDependency(shapePath);
+            e.PushDependencies(overlays);
+
+            return new Font(e.ResourceTree, shapePath, overlays, defaultWidth, height, tracking, shadow, characterDefinitions)
+            {
+                Resource = e.Resource
+            };
+        }
+
+        private static Font.CharacterDefinition ParseCharacterDefinition(XmlNode chardefNode)
+        {
+            char character = chardefNode.Attributes["char"].Value.First();
+
+            var rectNode = chardefNode.SelectSingleNode("rect");
+            var rect = new Rectanglei(
+                int.Parse(rectNode.Attributes["x"].Value),
+                int.Parse(rectNode.Attributes["y"].Value),
+                int.Parse(rectNode.Attributes["w"].Value),
+                int.Parse(rectNode.Attributes["h"].Value));
+
+            var offsetNode = chardefNode.SelectSingleNode("offset");
+            var offset = offsetNode != null
+                ? new Vector2i(
+                    int.Parse(offsetNode.Attributes["x"].Value),
+                    int.Parse(offsetNode.Attributes["y"].Value))
+                : new Vector2i();
+
+            int width = chardefNode.TryGetNodeInnerText("width", out string widthStr)
+                ? int.Parse(widthStr)
+                : rect.Width;
+
+            return new Font.CharacterDefinition(character, rect, offset, width);
+        }
     }
 }

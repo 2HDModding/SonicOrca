@@ -1,104 +1,87 @@
-// Decompiled with JetBrains decompiler
-// Type: SonicOrca.Geometry.Ellipse
-// Assembly: SonicOrca, Version=2.0.1012.10518, Culture=neutral, PublicKeyToken=null
-// MVID: 2E579C53-B7D9-4C24-9AF5-48E9526A12E7
-// Assembly location: C:\Games\S2HD_2.0.1012-rc2\SonicOrca.dll
-
 using System;
 
 namespace SonicOrca.Geometry
 {
-
+    // Token: 0x020000FE RID: 254
     public struct Ellipse : IEquatable<Ellipse>
     {
-      public static Ellipse Empty => new Ellipse();
-
-      public Vector2 Position { get; set; }
-
-      public Vector2 Radius { get; set; }
-
-      public double Area => Math.PI * this.Radius.X * this.Radius.Y;
-
-      public Ellipse(double x, double y, double radiusX, double radiusY)
-        : this()
-      {
-        this.Position = new Vector2(x, y);
-        this.Radius = new Vector2(radiusX, radiusY);
-      }
-
-      public bool Contains(Vector2 p)
-      {
-        if (this.Radius.X <= 0.0 || this.Radius.Y <= 0.0)
-          return false;
-        Vector2 vector2_1;
-        ref Vector2 local = ref vector2_1;
-        double x1 = p.X;
-        Vector2 vector2_2 = this.Position;
-        double x2 = vector2_2.X;
-        double x3 = x1 - x2;
-        double y1 = p.Y;
-        vector2_2 = this.Position;
-        double y2 = vector2_2.Y;
-        double y3 = y1 - y2;
-        local = new Vector2(x3, y3);
-        double num1 = vector2_1.X * vector2_1.X;
-        vector2_2 = this.Radius;
-        double x4 = vector2_2.X;
-        vector2_2 = this.Radius;
-        double x5 = vector2_2.X;
-        double num2 = x4 * x5;
-        double num3 = num1 / num2;
-        double num4 = vector2_1.Y * vector2_1.Y;
-        vector2_2 = this.Radius;
-        double y4 = vector2_2.Y;
-        vector2_2 = this.Radius;
-        double y5 = vector2_2.Y;
-        double num5 = y4 * y5;
-        double num6 = num4 / num5;
-        return num3 + num6 <= 1.0;
-      }
-
-      public override bool Equals(object obj) => this.Equals((Ellipse) obj);
-
-      public bool Equals(Ellipse other)
-      {
-        Vector2 position1 = other.Position;
-        double x1 = position1.X;
-        position1 = this.Position;
-        double x2 = position1.X;
-        if (x1 == x2)
+        // Token: 0x170001DA RID: 474
+        // (get) Token: 0x06000899 RID: 2201 RVA: 0x00022234 File Offset: 0x00020434
+        public static Ellipse Empty
         {
-          Vector2 position2 = other.Position;
-          double y1 = position2.Y;
-          position2 = this.Position;
-          double y2 = position2.Y;
-          if (y1 == y2)
-          {
-            Vector2 radius1 = other.Radius;
-            double x3 = radius1.X;
-            radius1 = this.Radius;
-            double x4 = radius1.X;
-            if (x3 == x4)
+            get
             {
-              Vector2 radius2 = other.Radius;
-              double y3 = radius2.Y;
-              radius2 = this.Radius;
-              double y4 = radius2.Y;
-              return y3 == y4;
+                return default(Ellipse);
             }
-          }
         }
-        return false;
-      }
 
-      public override int GetHashCode()
-      {
-        return (((13 * 7 + this.Position.X.GetHashCode()) * 7 + this.Position.Y.GetHashCode()) * 7 + this.Radius.X.GetHashCode()) * 7 + this.Radius.Y.GetHashCode();
-      }
+        // Token: 0x170001DB RID: 475
+        // (get) Token: 0x0600089A RID: 2202 RVA: 0x0002224A File Offset: 0x0002044A
+        // (set) Token: 0x0600089B RID: 2203 RVA: 0x00022252 File Offset: 0x00020452
+        public Vector2 Position { get; set; }
 
-      public override string ToString()
-      {
-        return $"X = {this.Position.X} Y = {this.Position.Y} RadiusX = {this.Radius.X} RadiusY = {this.Radius.Y}";
-      }
+        // Token: 0x170001DC RID: 476
+        // (get) Token: 0x0600089C RID: 2204 RVA: 0x0002225B File Offset: 0x0002045B
+        // (set) Token: 0x0600089D RID: 2205 RVA: 0x00022263 File Offset: 0x00020463
+        public Vector2 Radius { get; set; }
+
+        // Token: 0x170001DD RID: 477
+        // (get) Token: 0x0600089E RID: 2206 RVA: 0x0002226C File Offset: 0x0002046C
+        public double Area
+        {
+            get
+            {
+                return 3.141592653589793 * this.Radius.X * this.Radius.Y;
+            }
+        }
+
+        // Token: 0x0600089F RID: 2207 RVA: 0x000222A0 File Offset: 0x000204A0
+        public Ellipse(double x, double y, double radiusX, double radiusY)
+        {
+            this = default(Ellipse);
+            this.Position = new Vector2(x, y);
+            this.Radius = new Vector2(radiusX, radiusY);
+        }
+
+        // Token: 0x060008A0 RID: 2208 RVA: 0x000222C4 File Offset: 0x000204C4
+        public bool Contains(Vector2 p)
+        {
+            if (this.Radius.X <= 0.0 || this.Radius.Y <= 0.0)
+            {
+                return false;
+            }
+            Vector2 vector = new Vector2(p.X - this.Position.X, p.Y - this.Position.Y);
+            return vector.X * vector.X / (this.Radius.X * this.Radius.X) + vector.Y * vector.Y / (this.Radius.Y * this.Radius.Y) <= 1.0;
+        }
+
+        // Token: 0x060008A1 RID: 2209 RVA: 0x000223A1 File Offset: 0x000205A1
+        public override bool Equals(object obj)
+        {
+            return this.Equals((Ellipse)obj);
+        }
+
+        // Token: 0x060008A2 RID: 2210 RVA: 0x000223B0 File Offset: 0x000205B0
+        public bool Equals(Ellipse other)
+        {
+            return other.Position.X == this.Position.X && other.Position.Y == this.Position.Y && other.Radius.X == this.Radius.X && other.Radius.Y == this.Radius.Y;
+        }
+
+        // Token: 0x060008A3 RID: 2211 RVA: 0x0002243C File Offset: 0x0002063C
+        public override int GetHashCode()
+        {
+            return (((13 * 7 + this.Position.X.GetHashCode()) * 7 + this.Position.Y.GetHashCode()) * 7 + this.Radius.X.GetHashCode()) * 7 + this.Radius.Y.GetHashCode();
+        }
+
+        // Token: 0x060008A4 RID: 2212 RVA: 0x000224B0 File Offset: 0x000206B0
+        public override string ToString()
+        {
+            return string.Format("X = {0} Y = {1} RadiusX = {2} RadiusY = {3}", new object[]
+            {
+                this.Position.X,
+                this.Position.Y,
+                this.Radius.X,
+                this.Radius.Y
+            });
+        }
     }
 }

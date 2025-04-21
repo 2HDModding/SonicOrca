@@ -84,15 +84,9 @@ namespace SonicOrca.Core
       {
         get
         {
-          Vector2 lifeRadius = this.Type.GetLifeRadius((IActiveObject) this.Entry.State);
-          Vector2 vector2;
-          ref Vector2 local = ref vector2;
-          Vector2i position = this.Position;
-          double x = (double) position.X - lifeRadius.X;
-          position = this.Position;
-          double y = (double) position.Y - lifeRadius.Y;
-          local = new Vector2(x, y);
-          return (Rectanglei) new Rectangle(vector2.X, vector2.Y, lifeRadius.X * 2.0, lifeRadius.Y * 2.0);
+		    Vector2 lifeRadius = this.Type.GetLifeRadius(this.Entry.State);
+			Vector2 vector = new Vector2((double)this.Position.X - lifeRadius.X, (double)this.Position.Y - lifeRadius.Y);
+			return new Rectangle(vector.X, vector.Y, lifeRadius.X * 2.0, lifeRadius.Y * 2.0);
         }
       }
 

@@ -6,7 +6,6 @@
 
 using System.IO;
 
-#nullable disable
 namespace Hjg.Pngcs.Chunks
 {
 

@@ -7,7 +7,6 @@
 using csogg;
 using System.Text;
 
-#nullable disable
 namespace csvorbis
 {
 

@@ -6,7 +6,6 @@
 
 using csogg;
 
-#nullable disable
 namespace csvorbis
 {
 

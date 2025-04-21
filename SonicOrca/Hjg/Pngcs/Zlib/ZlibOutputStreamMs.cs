@@ -7,7 +7,6 @@
 using System.IO;
 using System.IO.Compression;
 
-#nullable disable
 namespace Hjg.Pngcs.Zlib
 {
 

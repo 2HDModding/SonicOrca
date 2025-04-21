@@ -3,16 +3,16 @@ setlocal enabledelayedexpansion
 
 echo Starting removal of "#nullable disable" from C# files...
 
-if not exist "..\SonicOrca\SonicOrca" (
-    echo Error: SonicOrca folder not found
-    echo Please run this script from the root directory of the SonicOrca decompilation
+if not exist "..\..\SonicOrca\csvorbis" (
+    echo Error: csvorbis folder not found
+    echo Please run this script from the root directory of the csvorbis decompilation
     pause
     exit /b 1
 )
 
 set "tempfile=%temp%\temp.cs"
 
-for /r "..\SonicOrca\SonicOrca" %%f in (*.cs) do (
+for /r "..\..\SonicOrca\csvorbis" %%f in (*.cs) do (
     echo Processing: %%f
     set "file=%%f"
     

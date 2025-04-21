@@ -7,7 +7,6 @@
 using csogg;
 using System.Runtime.CompilerServices;
 
-#nullable disable
 namespace csvorbis
 {
 

@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace csvorbis
 {
 
@@ -264,7 +263,7 @@ namespace csvorbis
         0.251188636f,
         0.158489317f,
         0.1f,
-        156f / (787f * Math.PI),
+        156f / (787f * (float)Math.PI),
         0.0398107171f,
         0.0251188651f,
         0.0158489328f,

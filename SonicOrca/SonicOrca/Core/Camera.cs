@@ -334,32 +334,18 @@ namespace SonicOrca.Core
 
       protected void DrawSafeAreaGuides(Renderer renderer)
       {
-        I2dRenderer obj = renderer.Get2dRenderer();
-        double num1 = this.ScreenBounds.Width * 0.019999999552965164;
-        Rectangle screenBounds1 = this.ScreenBounds;
-        double width1 = screenBounds1.Width;
-        screenBounds1 = this.ScreenBounds;
-        double height1 = screenBounds1.Height;
-        double num2 = Math.Min(width1, height1) / 3.0;
-        Rectangle rectangle;
-        ref Rectangle local = ref rectangle;
-        Rectangle screenBounds2 = this.ScreenBounds;
-        double x = screenBounds2.X + num1;
-        screenBounds2 = this.ScreenBounds;
-        double y = screenBounds2.Y + num1;
-        screenBounds2 = this.ScreenBounds;
-        double width2 = screenBounds2.Width - num1 * 2.0;
-        screenBounds2 = this.ScreenBounds;
-        double height2 = screenBounds2.Height - num1 * 2.0;
-        local = new Rectangle(x, y, width2, height2);
-        obj.RenderLine(Colours.White, new Vector2(rectangle.X, rectangle.Y), new Vector2(rectangle.X + num2, rectangle.Y), 1.0);
-        obj.RenderLine(Colours.White, new Vector2(rectangle.X, rectangle.Y), new Vector2(rectangle.X, rectangle.Y + num2), 1.0);
-        obj.RenderLine(Colours.White, new Vector2(rectangle.Right, rectangle.Y), new Vector2(rectangle.Right - num2, rectangle.Y), 1.0);
-        obj.RenderLine(Colours.White, new Vector2(rectangle.Right, rectangle.Y), new Vector2(rectangle.Right, rectangle.Y + num2), 1.0);
-        obj.RenderLine(Colours.White, new Vector2(rectangle.X, rectangle.Bottom), new Vector2(rectangle.X, rectangle.Bottom - num2), 1.0);
-        obj.RenderLine(Colours.White, new Vector2(rectangle.X, rectangle.Bottom), new Vector2(rectangle.X + num2, rectangle.Bottom), 1.0);
-        obj.RenderLine(Colours.White, new Vector2(rectangle.Right, rectangle.Bottom), new Vector2(rectangle.Right - num2, rectangle.Bottom), 1.0);
-        obj.RenderLine(Colours.White, new Vector2(rectangle.Right, rectangle.Bottom), new Vector2(rectangle.Right, rectangle.Bottom - num2), 1.0);
+			I2dRenderer i2dRenderer = renderer.Get2dRenderer();
+			double num = this.ScreenBounds.Width * 0.019999999552965164;
+			double num2 = Math.Min(this.ScreenBounds.Width, this.ScreenBounds.Height) / 3.0;
+			Rectangle rectangle = new Rectangle(this.ScreenBounds.X + num, this.ScreenBounds.Y + num, this.ScreenBounds.Width - num * 2.0, this.ScreenBounds.Height - num * 2.0);
+			i2dRenderer.RenderLine(Colours.White, new Vector2(rectangle.X, rectangle.Y), new Vector2(rectangle.X + num2, rectangle.Y), 1.0);
+			i2dRenderer.RenderLine(Colours.White, new Vector2(rectangle.X, rectangle.Y), new Vector2(rectangle.X, rectangle.Y + num2), 1.0);
+			i2dRenderer.RenderLine(Colours.White, new Vector2(rectangle.Right, rectangle.Y), new Vector2(rectangle.Right - num2, rectangle.Y), 1.0);
+			i2dRenderer.RenderLine(Colours.White, new Vector2(rectangle.Right, rectangle.Y), new Vector2(rectangle.Right, rectangle.Y + num2), 1.0);
+			i2dRenderer.RenderLine(Colours.White, new Vector2(rectangle.X, rectangle.Bottom), new Vector2(rectangle.X, rectangle.Bottom - num2), 1.0);
+			i2dRenderer.RenderLine(Colours.White, new Vector2(rectangle.X, rectangle.Bottom), new Vector2(rectangle.X + num2, rectangle.Bottom), 1.0);
+			i2dRenderer.RenderLine(Colours.White, new Vector2(rectangle.Right, rectangle.Bottom), new Vector2(rectangle.Right - num2, rectangle.Bottom), 1.0);
+			i2dRenderer.RenderLine(Colours.White, new Vector2(rectangle.Right, rectangle.Bottom), new Vector2(rectangle.Right, rectangle.Bottom - num2), 1.0);
       }
 
       protected void DrawCrossHair(Renderer renderer)

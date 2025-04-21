@@ -7,7 +7,6 @@
 using Hjg.Pngcs.Chunks;
 using System.IO;
 
-#nullable disable
 namespace Hjg.Pngcs
 {
 

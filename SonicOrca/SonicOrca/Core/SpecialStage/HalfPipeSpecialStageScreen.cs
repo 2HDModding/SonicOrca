@@ -411,15 +411,7 @@ namespace SonicOrca.Core.SpecialStage
 
         public override string ToString()
         {
-          // ISSUE: variable of a boxed type
-          __Boxed<Vector3> position = (ValueType) this.Position;
-          Vector2 angle = this.Angle;
-          // ISSUE: variable of a boxed type
-          __Boxed<double> degrees1 = (ValueType) MathX.ToDegrees(angle.X);
-          angle = this.Angle;
-          // ISSUE: variable of a boxed type
-          __Boxed<double> degrees2 = (ValueType) MathX.ToDegrees(angle.Y);
-          return $"{position}, {degrees1:0} DEG, {degrees2:0} DEG";
+                return string.Format("{0}, {1:0} DEG, {2:0} DEG", this.Position, MathX.ToDegrees(this.Angle.X), MathX.ToDegrees(this.Angle.Y));
         }
       }
 

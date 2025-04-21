@@ -8,7 +8,6 @@ using Hjg.Pngcs.Zlib;
 using System;
 using System.IO;
 
-#nullable disable
 namespace Hjg.Pngcs.Chunks
 {
 

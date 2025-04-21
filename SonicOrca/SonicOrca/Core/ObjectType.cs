@@ -15,151 +15,103 @@ using System.Runtime.CompilerServices;
 
 namespace SonicOrca.Core
 {
-
     public abstract class ObjectType : ILoadedResource, IDisposable
     {
-      public const string AnimalClass = "animal";
-      public const string CharacterClass = "character";
-      public const string ParticleClass = "particle";
-      public const string RingClass = "ring";
-      private static readonly Lockable<List<ObjectType>> LoadedTypeList = new Lockable<List<ObjectType>>(new List<ObjectType>());
-      private readonly string _name;
-      private readonly string _description;
-      private readonly ObjectClassification _classification;
-      private readonly string[] _dependencies;
-      private readonly IReadOnlyCollection<ObjectEditorProperty> _editorProperties;
+        public const string AnimalClass = "animal";
+        public const string CharacterClass = "character";
+        public const string ParticleClass = "particle";
+        public const string RingClass = "ring";
 
-      public Resource Resource { get; set; }
+        private static readonly Lockable<List<ObjectType>> LoadedTypeList = new Lockable<List<ObjectType>>(new List<ObjectType>());
 
-      public static IReadOnlyList<ObjectType> LoadedTypes
-      {
-        get
+        private readonly string _name;
+        private readonly string _description;
+        private readonly ObjectClassification _classification;
+        private readonly string[] _dependencies;
+        private readonly IReadOnlyCollection<ObjectEditorProperty> _editorProperties;
+
+        public Resource Resource { get; set; }
+        public Level Level { get; private set; }
+
+        public string ResourceKey => Resource.FullKeyPath;
+        public string Name => _name;
+        public ObjectClassification Classification => _classification;
+        public IReadOnlyCollection<string> Dependencies => _dependencies;
+        public IReadOnlyCollection<ObjectEditorProperty> EditorProperties => _editorProperties;
+
+        public static IReadOnlyList<ObjectType> LoadedTypes
         {
-          lock (ObjectType.LoadedTypeList.Sync)
-            return (IReadOnlyList<ObjectType>) ObjectType.LoadedTypeList.Instance.ToArray();
+            get
+            {
+                lock (LoadedTypeList.Sync)
+                    return LoadedTypeList.Instance.ToArray();
+            }
         }
-      }
 
-      public static void ClearLoadedTypes()
-      {
-        lock (ObjectType.LoadedTypeList.Sync)
-          ObjectType.LoadedTypeList.Instance.Clear();
-      }
-
-      public Level Level { get; private set; }
-
-      public string ResourceKey => this.Resource.FullKeyPath;
-
-      public string Name => this._name;
-
-      public ObjectClassification Classification => this._classification;
-
-      public IReadOnlyCollection<string> Dependencies
-      {
-        get => (IReadOnlyCollection<string>) this._dependencies;
-      }
-
-      public IReadOnlyCollection<ObjectEditorProperty> EditorProperties => this._editorProperties;
-
-      public ObjectType()
-      {
-        this._editorProperties = (IReadOnlyCollection<ObjectEditorProperty>) StateVariableAttribute.GetEditorProperties(this);
-        NameAttribute nameAttribute = NameAttribute.FromObject((object) this);
-        if (nameAttribute != null)
-          this._name = nameAttribute.Name;
-        DescriptionAttribute descriptionAttribute = DescriptionAttribute.FromObject((object) this);
-        if (descriptionAttribute != null)
-          this._description = descriptionAttribute.Description;
-        ClassificationAttribute classificationAttribute = ClassificationAttribute.FromObject((object) this);
-        if (classificationAttribute != null)
-          this._classification = classificationAttribute.Classification;
-        this._dependencies = SonicOrca.Core.Objects.Metadata.DependencyAttribute.GetDependencies((object) this).ToArray<string>();
-      }
-
-      public void OnLoaded()
-      {
-        lock (ObjectType.LoadedTypeList.Sync)
+        public static void ClearLoadedTypes()
         {
-          if (ObjectType.LoadedTypeList.Instance.Exists((Predicate<ObjectType>) (ot => ot.GetType() == this.GetType())))
-            return;
-          ObjectType.LoadedTypeList.Instance.Add(this);
+            lock (LoadedTypeList.Sync)
+                LoadedTypeList.Instance.Clear();
         }
-      }
 
-      public void Dispose()
-      {
-        lock (ObjectType.LoadedTypeList.Sync)
+        public ObjectType()
         {
-          if (!ObjectType.LoadedTypeList.Instance.Exists((Predicate<ObjectType>) (ot => ot.GetType() == this.GetType())))
-            return;
-          ObjectType.LoadedTypeList.Instance.Remove(this);
+            _editorProperties = StateVariableAttribute.GetEditorProperties(this);
+            _name = NameAttribute.FromObject(this)?.Name;
+            _description = DescriptionAttribute.FromObject(this)?.Description;
+            _classification = ClassificationAttribute.FromObject(this)?.Classification ?? default;
+            _dependencies = SonicOrca.Core.Objects.Metadata.DependencyAttribute.GetDependencies(this).ToArray();
         }
-      }
 
-      public void Register(Level level) => this.Level = level;
-
-      public void Unregister() => this.Level = (Level) null;
-
-      public void Start() => this.OnStart();
-
-      public void Update() => this.OnUpdate();
-
-      public void Animate() => this.OnAnimate();
-
-      public void Stop() => this.OnStop();
-
-      public virtual ActiveObject CreateInstance()
-      {
-        return (ActiveObject) Activator.CreateInstance((ObjectInstanceAttribute.FromObject((object) this) ?? throw new Exception()).ObjectInstanceType);
-      }
-
-      public Vector2 GetLifeRadius(IActiveObject state)
-      {
-        if (state.GetType() == typeof (IActiveObject))
-          throw new InvalidOperationException();
-        object obj1 = (object) this;
-        // ISSUE: reference to a compiler-generated field
-        if (ObjectType.\u003C\u003Eo__41.\u003C\u003Ep__1 == null)
+        public void OnLoaded()
         {
-          // ISSUE: reference to a compiler-generated field
-          ObjectType.\u003C\u003Eo__41.\u003C\u003Ep__1 = CallSite<Func<CallSite, object, Vector2>>.Create(Binder.Convert(CSharpBinderFlags.ConvertExplicit, typeof (Vector2), typeof (ObjectType)));
+            lock (LoadedTypeList.Sync)
+            {
+                if (!LoadedTypeList.Instance.Exists(ot => ot.GetType() == GetType()))
+                    LoadedTypeList.Instance.Add(this);
+            }
         }
-        // ISSUE: reference to a compiler-generated field
-        Func<CallSite, object, Vector2> target = ObjectType.\u003C\u003Eo__41.\u003C\u003Ep__1.Target;
-        // ISSUE: reference to a compiler-generated field
-        CallSite<Func<CallSite, object, Vector2>> p1 = ObjectType.\u003C\u003Eo__41.\u003C\u003Ep__1;
-        // ISSUE: reference to a compiler-generated field
-        if (ObjectType.\u003C\u003Eo__41.\u003C\u003Ep__0 == null)
+
+        public void Dispose()
         {
-          // ISSUE: reference to a compiler-generated field
-          ObjectType.\u003C\u003Eo__41.\u003C\u003Ep__0 = CallSite<Func<CallSite, object, object, object>>.Create(Binder.InvokeMember(CSharpBinderFlags.None, nameof (GetLifeRadius), (IEnumerable<Type>) null, typeof (ObjectType), (IEnumerable<CSharpArgumentInfo>) new CSharpArgumentInfo[2]
-          {
-            CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.None, (string) null),
-            CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.None, (string) null)
-          }));
+            lock (LoadedTypeList.Sync)
+            {
+                LoadedTypeList.Instance.RemoveAll(ot => ot.GetType() == GetType());
+            }
         }
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        object obj2 = ObjectType.\u003C\u003Eo__41.\u003C\u003Ep__0.Target((CallSite) ObjectType.\u003C\u003Eo__41.\u003C\u003Ep__0, obj1, (object) state);
-        return target((CallSite) p1, obj2);
-      }
 
-      public Vector2 GetLifeRadius(ActiveObject state) => new Vector2(0.0, 0.0);
+        public void Register(Level level) => Level = level;
+        public void Unregister() => Level = null;
 
-      protected virtual void OnStart()
-      {
-      }
+        public void Start() => OnStart();
+        public void Update() => OnUpdate();
+        public void Animate() => OnAnimate();
+        public void Stop() => OnStop();
 
-      protected virtual void OnUpdate()
-      {
-      }
+        public virtual ActiveObject CreateInstance()
+        {
+            var attr = ObjectInstanceAttribute.FromObject(this) ?? throw new Exception("Missing ObjectInstanceAttribute.");
+            return (ActiveObject)Activator.CreateInstance(attr.ObjectInstanceType);
+        }
 
-      protected virtual void OnAnimate()
-      {
-      }
+        public Vector2 GetLifeRadius(IActiveObject state)
+        {
+            if (state.GetType() == typeof(IActiveObject))
+                throw new InvalidOperationException();
 
-      protected virtual void OnStop()
-      {
-      }
+            var instanceType = GetType();
+            var method = instanceType.GetMethod("GetLifeRadius", new[] { state.GetType() });
+            if (method == null)
+                throw new MissingMethodException($"GetLifeRadius not implemented for {state.GetType().Name}.");
+
+            return (Vector2)method.Invoke(this, new object[] { state });
+        }
+
+        public virtual Vector2 GetLifeRadius(ActiveObject state) => new Vector2(0.0, 0.0);
+
+        protected virtual void OnStart() { }
+        protected virtual void OnUpdate() { }
+        protected virtual void OnAnimate() { }
+        protected virtual void OnStop() { }
     }
 }
