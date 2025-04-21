@@ -7,7 +7,6 @@
 using SonicOrca.Resources;
 using System;
 
-#nullable disable
 namespace SonicOrca.Graphics;
 
 public interface ITexture : IDisposable, ILoadedResource

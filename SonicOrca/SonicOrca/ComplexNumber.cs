@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace SonicOrca;
 
 public struct ComplexNumber : IEquatable<ComplexNumber>

@@ -12,7 +12,6 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.HelperLibraries.H264;
 
 public class H264ResourceType : ResourceType

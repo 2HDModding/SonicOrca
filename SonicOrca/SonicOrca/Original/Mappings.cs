@@ -7,7 +7,6 @@
 using SonicOrca.Core;
 using System.IO;
 
-#nullable disable
 namespace SonicOrca.Original;
 
 public static class Mappings

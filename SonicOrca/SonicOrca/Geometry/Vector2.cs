@@ -7,7 +7,6 @@
 using System;
 using System.Globalization;
 
-#nullable disable
 namespace SonicOrca.Geometry;
 
 public struct Vector2 : IEquatable<Vector2>

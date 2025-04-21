@@ -7,7 +7,6 @@
 using SonicOrca.Core.Collision;
 using System;
 
-#nullable disable
 namespace SonicOrca.Core.Objects.Base;
 
 public class Enemy : ActiveObject

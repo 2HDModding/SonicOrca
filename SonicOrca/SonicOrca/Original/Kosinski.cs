@@ -7,7 +7,6 @@
 using System.Collections.Generic;
 using System.IO;
 
-#nullable disable
 namespace SonicOrca.Original;
 
 public static class Kosinski

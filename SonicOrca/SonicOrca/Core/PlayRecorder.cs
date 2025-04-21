@@ -8,7 +8,6 @@ using SonicOrca.Geometry;
 using System;
 using System.IO;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 internal class PlayRecorder : IDisposable

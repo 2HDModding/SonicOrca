@@ -7,7 +7,6 @@
 using SonicOrca.Resources;
 using System;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public class LevelDependencies : ILoadedResource, IDisposable

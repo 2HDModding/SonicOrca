@@ -7,7 +7,6 @@
 using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 
-#nullable disable
 namespace SonicOrca.Menu;
 
 public class FadeTransition

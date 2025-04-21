@@ -6,7 +6,6 @@
 
 using SonicOrca.Core.Objects.Metadata;
 
-#nullable disable
 namespace SonicOrca.Core.Objects;
 
 [SonicOrca.Core.Objects.Metadata.Name("Ghost")]

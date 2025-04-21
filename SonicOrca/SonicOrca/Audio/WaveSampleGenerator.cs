@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace SonicOrca.Audio;
 
 public class WaveSampleGenerator : SampleGenerator

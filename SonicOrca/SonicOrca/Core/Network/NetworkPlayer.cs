@@ -10,7 +10,6 @@ using System.Collections.Concurrent;
 using System.Net;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 internal class NetworkPlayer

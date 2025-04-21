@@ -6,7 +6,6 @@
 
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Audio;
 
 public interface ISampleMixer

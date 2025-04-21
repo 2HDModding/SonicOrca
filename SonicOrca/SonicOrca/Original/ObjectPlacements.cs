@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Original;
 
 public static class ObjectPlacements

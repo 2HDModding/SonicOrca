@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Geometry;
 
 public class QuadTree<T> : ICollection<T>, IEnumerable<T>, IEnumerable where T : IBounds

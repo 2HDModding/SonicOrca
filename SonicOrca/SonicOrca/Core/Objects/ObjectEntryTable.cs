@@ -10,7 +10,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Core.Objects;
 
 public class ObjectEntryTable : ICollection<ObjectEntry>, IEnumerable<ObjectEntry>, IEnumerable

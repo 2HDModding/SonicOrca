@@ -8,7 +8,6 @@ using SonicOrca.Graphics;
 using System.Threading;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.Menu;
 
 public abstract class Screen

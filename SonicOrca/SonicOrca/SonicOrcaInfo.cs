@@ -7,7 +7,6 @@
 using System;
 using System.Reflection;
 
-#nullable disable
 namespace SonicOrca;
 
 public static class SonicOrcaInfo

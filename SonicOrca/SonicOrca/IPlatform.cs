@@ -9,7 +9,6 @@ using SonicOrca.Graphics;
 using SonicOrca.Input;
 using System;
 
-#nullable disable
 namespace SonicOrca;
 
 public interface IPlatform : IDisposable

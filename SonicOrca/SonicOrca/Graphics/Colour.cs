@@ -7,7 +7,6 @@
 using System;
 using System.Text.RegularExpressions;
 
-#nullable disable
 namespace SonicOrca.Graphics;
 
 public struct Colour : IEquatable<Colour>

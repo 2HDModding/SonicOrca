@@ -9,7 +9,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public class Camera

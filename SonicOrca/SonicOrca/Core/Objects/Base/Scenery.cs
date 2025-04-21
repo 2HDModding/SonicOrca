@@ -7,7 +7,6 @@
 using SonicOrca.Extensions;
 using SonicOrca.Graphics;
 
-#nullable disable
 namespace SonicOrca.Core.Objects.Base;
 
 public class Scenery : ActiveObject

@@ -13,7 +13,6 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.HelperLibraries.Png;
 
 public class PngResourceType : ResourceType

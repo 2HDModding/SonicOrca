@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace SonicOrca.Geometry;
 
 public struct Rectangle : IEquatable<Rectangle>

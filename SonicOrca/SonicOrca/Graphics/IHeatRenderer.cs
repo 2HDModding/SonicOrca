@@ -7,7 +7,6 @@
 using SonicOrca.Geometry;
 using System;
 
-#nullable disable
 namespace SonicOrca.Graphics;
 
 public interface IHeatRenderer : IRenderer, IDisposable

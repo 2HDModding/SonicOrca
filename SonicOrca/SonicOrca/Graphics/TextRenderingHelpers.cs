@@ -7,7 +7,6 @@
 using SonicOrca.Geometry;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Graphics;
 
 public static class TextRenderingHelpers

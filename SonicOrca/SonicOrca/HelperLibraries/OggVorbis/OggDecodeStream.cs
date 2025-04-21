@@ -9,7 +9,6 @@ using csvorbis;
 using System;
 using System.IO;
 
-#nullable disable
 namespace SonicOrca.HelperLibraries.OggVorbis;
 
 public class OggDecodeStream : Stream

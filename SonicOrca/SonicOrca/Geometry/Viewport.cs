@@ -7,7 +7,6 @@
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace SonicOrca.Geometry;
 
 public class Viewport

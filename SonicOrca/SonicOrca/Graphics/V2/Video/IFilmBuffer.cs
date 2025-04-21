@@ -7,7 +7,6 @@
 using SonicOrca.Resources;
 using System;
 
-#nullable disable
 namespace SonicOrca.Graphics.V2.Video;
 
 public interface IFilmBuffer : IDisposable, ILoadedResource

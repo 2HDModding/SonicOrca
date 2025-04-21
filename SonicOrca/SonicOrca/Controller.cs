@@ -7,7 +7,6 @@
 using SonicOrca.Geometry;
 using SonicOrca.Input;
 
-#nullable disable
 namespace SonicOrca;
 
 public class Controller

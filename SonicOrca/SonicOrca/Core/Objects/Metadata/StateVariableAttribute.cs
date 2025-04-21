@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-#nullable disable
 namespace SonicOrca.Core.Objects.Metadata;
 
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]

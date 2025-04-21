@@ -6,7 +6,6 @@
 
 using SonicOrca.Geometry;
 
-#nullable disable
 namespace SonicOrca.Core.Lighting;
 
 public class ShadowInfo : IShadowInfo

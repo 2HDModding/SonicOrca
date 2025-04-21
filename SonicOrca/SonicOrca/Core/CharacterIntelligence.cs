@@ -7,7 +7,6 @@
 using SonicOrca.Core.Objects;
 using SonicOrca.Core.Objects.Base;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public static class CharacterIntelligence

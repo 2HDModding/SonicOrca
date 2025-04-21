@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-#nullable disable
 namespace SonicOrca.Core.Objects.Metadata;
 
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field, AllowMultiple = true)]

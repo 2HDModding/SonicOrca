@@ -8,7 +8,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Resources;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Graphics;
 
 public class AnimationInstance

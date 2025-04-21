@@ -8,7 +8,6 @@ using SonicOrca.Resources;
 using System;
 using System.IO;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public class InputRecordingResource : ILoadedResource, IDisposable

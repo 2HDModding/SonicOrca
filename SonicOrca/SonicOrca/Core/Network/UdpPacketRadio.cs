@@ -12,7 +12,6 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 internal class UdpPacketRadio : IPacketRadio, IDisposable, IObservable<ReceivedPacket>

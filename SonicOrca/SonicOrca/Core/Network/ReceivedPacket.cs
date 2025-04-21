@@ -6,7 +6,6 @@
 
 using System.Net;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 internal class ReceivedPacket

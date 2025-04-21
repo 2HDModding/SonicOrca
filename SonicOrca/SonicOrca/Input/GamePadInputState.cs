@@ -6,7 +6,6 @@
 
 using SonicOrca.Geometry;
 
-#nullable disable
 namespace SonicOrca.Input;
 
 public struct GamePadInputState

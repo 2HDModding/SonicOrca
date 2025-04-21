@@ -13,7 +13,6 @@ using SonicOrca.Resources;
 using System;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public abstract class ActiveObject : IActiveObject

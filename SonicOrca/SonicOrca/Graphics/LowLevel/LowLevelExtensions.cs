@@ -6,7 +6,6 @@
 
 using SonicOrca.Geometry;
 
-#nullable disable
 namespace SonicOrca.Graphics.LowLevel;
 
 public static class LowLevelExtensions

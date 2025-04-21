@@ -6,7 +6,6 @@
 
 using SonicOrca.Graphics;
 
-#nullable disable
 namespace SonicOrca.Core.Debugging;
 
 public class DebugOption

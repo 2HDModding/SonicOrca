@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Core.Collision;
 
 public class CollisionTable

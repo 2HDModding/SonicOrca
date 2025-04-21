@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 internal class CharacterSynchronisationPacket : Packet

@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-#nullable disable
 namespace SonicOrca.Core.Collision;
 
 public class CollisionVector : IBounds

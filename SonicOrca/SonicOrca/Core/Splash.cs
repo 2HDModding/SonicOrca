@@ -8,7 +8,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 internal class Splash

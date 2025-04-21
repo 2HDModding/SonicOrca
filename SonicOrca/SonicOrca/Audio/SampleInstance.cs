@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-#nullable disable
 namespace SonicOrca.Audio;
 
 public class SampleInstance : IDisposable, ISampleProvider

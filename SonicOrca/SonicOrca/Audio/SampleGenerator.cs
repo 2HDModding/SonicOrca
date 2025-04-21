@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace SonicOrca.Audio;
 
 public abstract class SampleGenerator : IDisposable, ISampleProvider

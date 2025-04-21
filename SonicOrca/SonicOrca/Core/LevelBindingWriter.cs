@@ -11,7 +11,6 @@ using System.Globalization;
 using System.Linq;
 using System.Xml;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public class LevelBindingWriter

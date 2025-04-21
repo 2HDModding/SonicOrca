@@ -14,7 +14,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 internal class NetworkGameServer : IDisposable, IObserver<ReceivedPacket>

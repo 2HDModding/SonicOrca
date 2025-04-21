@@ -8,7 +8,6 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 internal abstract class Packet

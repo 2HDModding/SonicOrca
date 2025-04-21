@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 internal class NetworkGameClient : IDisposable, IObserver<ReceivedPacket>

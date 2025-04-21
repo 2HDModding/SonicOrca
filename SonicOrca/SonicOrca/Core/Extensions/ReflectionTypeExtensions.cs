@@ -10,7 +10,6 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-#nullable disable
 namespace SonicOrca.Core.Extensions;
 
 public static class ReflectionTypeExtensions

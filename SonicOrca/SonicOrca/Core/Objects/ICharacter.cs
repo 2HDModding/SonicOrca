@@ -10,7 +10,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Core.Objects;
 
 public interface ICharacter : IActiveObject

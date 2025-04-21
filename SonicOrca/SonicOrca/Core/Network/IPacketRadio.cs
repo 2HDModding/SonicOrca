@@ -8,7 +8,6 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 internal interface IPacketRadio : IDisposable, IObservable<ReceivedPacket>

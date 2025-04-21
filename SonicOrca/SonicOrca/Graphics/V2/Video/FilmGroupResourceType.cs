@@ -12,7 +12,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
-#nullable disable
 namespace SonicOrca.Graphics.V2.Video;
 
 public class FilmGroupResourceType : ResourceType

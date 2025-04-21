@@ -11,7 +11,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 internal class Sonic2LevelTitleCard : ILevelTitleCard, IDisposable

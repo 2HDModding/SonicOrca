@@ -7,7 +7,6 @@
 using SonicOrca.Geometry;
 using System;
 
-#nullable disable
 namespace SonicOrca.Core.Lighting;
 
 public class VectorLightSource : ILightSource

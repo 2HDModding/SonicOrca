@@ -8,7 +8,6 @@ using SonicOrca.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Input;
 
 public sealed class KeyboardState : 

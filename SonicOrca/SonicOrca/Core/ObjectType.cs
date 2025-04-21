@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public abstract class ObjectType : ILoadedResource, IDisposable

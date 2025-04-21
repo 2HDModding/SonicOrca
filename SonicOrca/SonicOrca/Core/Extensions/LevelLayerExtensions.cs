@@ -6,7 +6,6 @@
 
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Core.Extensions;
 
 public static class LevelLayerExtensions

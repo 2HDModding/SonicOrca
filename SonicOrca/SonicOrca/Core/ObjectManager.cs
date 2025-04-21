@@ -15,7 +15,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public class ObjectManager

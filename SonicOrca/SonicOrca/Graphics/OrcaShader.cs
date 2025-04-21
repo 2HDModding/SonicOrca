@@ -11,7 +11,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-#nullable disable
 namespace SonicOrca.Graphics;
 
 public static class OrcaShader

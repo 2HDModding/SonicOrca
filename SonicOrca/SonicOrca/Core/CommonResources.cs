@@ -13,7 +13,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public class CommonResources : IDisposable

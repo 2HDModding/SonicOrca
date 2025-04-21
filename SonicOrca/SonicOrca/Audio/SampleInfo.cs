@@ -7,7 +7,6 @@
 using SonicOrca.Resources;
 using System;
 
-#nullable disable
 namespace SonicOrca.Audio;
 
 public class SampleInfo : ILoadedResource, IDisposable

@@ -6,7 +6,6 @@
 
 using System.Runtime.InteropServices;
 
-#nullable disable
 namespace SonicOrca.Graphics.LowLevel;
 
 [VertexAttributeType(VertexAttributePointerType.Float, 2)]

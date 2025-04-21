@@ -8,7 +8,6 @@ using SonicOrca.Geometry;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Graphics;
 
 public interface I2dRenderer : IDisposable, IRenderer

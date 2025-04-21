@@ -16,7 +16,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
-#nullable disable
 namespace SonicOrca;
 
 public abstract class SonicOrcaGameContext : IDisposable

@@ -7,7 +7,6 @@
 using System;
 using System.Runtime.Serialization;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 [Serializable]

@@ -7,7 +7,6 @@
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Graphics;
 
 public class ShaderInstance : IDisposable

@@ -8,7 +8,6 @@ using SonicOrca.Geometry;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Core.Lighting;
 
 internal class LightingManager : ILightingManager

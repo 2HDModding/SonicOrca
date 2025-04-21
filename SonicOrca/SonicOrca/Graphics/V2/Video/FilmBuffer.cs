@@ -11,7 +11,6 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
-#nullable disable
 namespace SonicOrca.Graphics.V2.Video;
 
 public class FilmBuffer : IFilmBuffer, IDisposable, ILoadedResource

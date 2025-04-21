@@ -8,7 +8,6 @@ using SonicOrca.Core.Collision;
 using SonicOrca.Geometry;
 using System;
 
-#nullable disable
 namespace SonicOrca.Core.Objects.Base;
 
 public class Badnik : ActiveObject

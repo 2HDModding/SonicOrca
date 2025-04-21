@@ -7,7 +7,6 @@
 using System;
 using System.Text;
 
-#nullable disable
 namespace SonicOrca.Geometry;
 
 public struct Matrix4 : IEquatable<Matrix4>

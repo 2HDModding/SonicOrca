@@ -8,7 +8,6 @@ using SonicOrca.Resources;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public class LevelBinding : ILoadedResource, IDisposable

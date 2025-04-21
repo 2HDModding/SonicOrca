@@ -11,7 +11,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace SonicOrca.Core.Objects.Base;
 
 public abstract class Animal : ActiveObject

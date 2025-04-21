@@ -8,7 +8,6 @@ using System;
 using System.Linq;
 using System.Xml;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public class LevelDependenciesWriter

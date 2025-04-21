@@ -15,7 +15,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 public class ObjectPlacement

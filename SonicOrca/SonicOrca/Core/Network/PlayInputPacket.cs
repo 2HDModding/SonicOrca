@@ -7,7 +7,6 @@
 using SonicOrca.Geometry;
 using System.IO;
 
-#nullable disable
 namespace SonicOrca.Core.Network;
 
 internal class PlayInputPacket : Packet

@@ -9,7 +9,6 @@ using SonicOrca.Resources;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Graphics.V2.Video;
 
 public class FilmInstance

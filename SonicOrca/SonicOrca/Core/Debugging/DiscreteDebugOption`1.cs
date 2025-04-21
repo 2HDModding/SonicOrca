@@ -8,7 +8,6 @@ using SonicOrca.Graphics;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Core.Debugging;
 
 internal class DiscreteDebugOption<T> : DebugOption

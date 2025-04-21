@@ -8,7 +8,6 @@ using SonicOrca.Geometry;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Graphics.V2.Animation;
 
 public class Composition

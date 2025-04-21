@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Core.Objects.Base;
 
 public class Platform : ActiveObject, SonicOrca.Core.Objects.IPlatform, IActiveObject

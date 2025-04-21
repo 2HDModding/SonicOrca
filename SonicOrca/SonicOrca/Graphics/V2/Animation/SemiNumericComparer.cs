@@ -7,7 +7,6 @@
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Graphics.V2.Animation;
 
 public class SemiNumericComparer : IComparer<string>

@@ -7,7 +7,6 @@
 using System;
 using System.IO;
 
-#nullable disable
 namespace SonicOrca.Original;
 
 internal class BitWriter

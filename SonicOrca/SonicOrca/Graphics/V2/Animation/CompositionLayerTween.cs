@@ -6,7 +6,6 @@
 
 using System.Collections.Generic;
 
-#nullable disable
 namespace SonicOrca.Graphics.V2.Animation;
 
 public class CompositionLayerTween

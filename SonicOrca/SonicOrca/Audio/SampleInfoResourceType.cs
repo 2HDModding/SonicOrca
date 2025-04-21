@@ -11,7 +11,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
-#nullable disable
 namespace SonicOrca.Audio;
 
 internal class SampleInfoResourceType : ResourceType

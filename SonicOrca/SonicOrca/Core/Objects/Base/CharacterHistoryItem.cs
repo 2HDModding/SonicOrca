@@ -6,7 +6,6 @@
 
 using SonicOrca.Geometry;
 
-#nullable disable
 namespace SonicOrca.Core.Objects.Base;
 
 public class CharacterHistoryItem
