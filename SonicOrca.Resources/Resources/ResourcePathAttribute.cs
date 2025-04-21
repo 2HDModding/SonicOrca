@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Resources.ResourcePathAttribute
 // Assembly: SonicOrca.Resources, Version=2.0.1012.10517, Culture=neutral, PublicKeyToken=null
 // MVID: B73309CE-1E69-41CD-B190-BBA8714165BD
@@ -6,13 +6,14 @@
 
 using System;
 
-#nullable disable
-namespace SonicOrca.Resources;
-
-[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-public class ResourcePathAttribute : Attribute
+namespace SonicOrca.Resources
 {
-  public string Path { get; }
 
-  public ResourcePathAttribute(string path) => this.Path = path;
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    public class ResourcePathAttribute : Attribute
+    {
+      public string Path { get; }
+
+      public ResourcePathAttribute(string path) => this.Path = path;
+    }
 }

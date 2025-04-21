@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Resources.ResourceException
 // Assembly: SonicOrca.Resources, Version=2.0.1012.10517, Culture=neutral, PublicKeyToken=null
 // MVID: B73309CE-1E69-41CD-B190-BBA8714165BD
@@ -7,28 +7,29 @@
 using System;
 using System.Runtime.Serialization;
 
-#nullable disable
-namespace SonicOrca.Resources;
-
-[Serializable]
-public class ResourceException : Exception
+namespace SonicOrca.Resources
 {
-  public ResourceException()
-  {
-  }
 
-  public ResourceException(string message)
-    : base(message)
-  {
-  }
+    [Serializable]
+    public class ResourceException : Exception
+    {
+      public ResourceException()
+      {
+      }
 
-  public ResourceException(string message, Exception inner)
-    : base(message, inner)
-  {
-  }
+      public ResourceException(string message)
+        : base(message)
+      {
+      }
 
-  protected ResourceException(SerializationInfo info, StreamingContext context)
-    : base(info, context)
-  {
-  }
+      public ResourceException(string message, Exception inner)
+        : base(message, inner)
+      {
+      }
+
+      protected ResourceException(SerializationInfo info, StreamingContext context)
+        : base(info, context)
+      {
+      }
+    }
 }
