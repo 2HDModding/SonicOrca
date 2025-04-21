@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.EnumHelpers
 // Assembly: SonicOrca.Common, Version=2.0.1012.10517, Culture=neutral, PublicKeyToken=null
 // MVID: DBB68121-E3AF-4423-9C2F-110CAC67FEBB
@@ -6,10 +6,11 @@
 
 using System;
 
-#nullable disable
-namespace SonicOrca;
-
-public static class EnumHelpers
+namespace SonicOrca
 {
-  public static int GetEnumCount(Type enumeration) => Enum.GetNames(enumeration).Length;
+
+    public static class EnumHelpers
+    {
+      public static int GetEnumCount(Type enumeration) => Enum.GetNames(enumeration).Length;
+    }
 }
