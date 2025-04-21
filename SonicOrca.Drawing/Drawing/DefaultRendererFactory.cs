@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.Drawing.DefaultRendererFactory
 // Assembly: SonicOrca.Drawing, Version=2.0.1012.10520, Culture=neutral, PublicKeyToken=null
 // MVID: 31C48419-27DE-46EA-9D16-61FB91FF0FE1
@@ -7,43 +7,44 @@
 using SonicOrca.Drawing.Renderers;
 using SonicOrca.Graphics;
 
-#nullable disable
-namespace SonicOrca.Drawing;
-
-public class DefaultRendererFactory : IRendererFactory
+namespace SonicOrca.Drawing
 {
-  private readonly IGraphicsContext _graphicsContext;
 
-  private DefaultRendererFactory(IGraphicsContext graphicsContext)
-  {
-    this._graphicsContext = graphicsContext;
-  }
+    public class DefaultRendererFactory : IRendererFactory
+    {
+      private readonly IGraphicsContext _graphicsContext;
 
-  public static IRendererFactory Create(IGraphicsContext graphicsContext)
-  {
-    return (IRendererFactory) new DefaultRendererFactory(graphicsContext);
-  }
+      private DefaultRendererFactory(IGraphicsContext graphicsContext)
+      {
+        this._graphicsContext = graphicsContext;
+      }
 
-  public I2dRenderer Create2dRenderer() => (I2dRenderer) null;
+      public static IRendererFactory Create(IGraphicsContext graphicsContext)
+      {
+        return (IRendererFactory) new DefaultRendererFactory(graphicsContext);
+      }
 
-  public IFontRenderer CreateFontRenderer() => (IFontRenderer) null;
+      public I2dRenderer Create2dRenderer() => (I2dRenderer) null;
 
-  public IFadeTransitionRenderer CreateFadeTransitionRenderer()
-  {
-    return (IFadeTransitionRenderer) new ClassicFadeTransitionRenderer(this._graphicsContext);
-  }
+      public IFontRenderer CreateFontRenderer() => (IFontRenderer) null;
 
-  public ITileRenderer CreateTileRenderer() => (ITileRenderer) null;
+      public IFadeTransitionRenderer CreateFadeTransitionRenderer()
+      {
+        return (IFadeTransitionRenderer) new ClassicFadeTransitionRenderer(this._graphicsContext);
+      }
 
-  public IObjectRenderer CreateObjectRenderer() => (IObjectRenderer) null;
+      public ITileRenderer CreateTileRenderer() => (ITileRenderer) null;
 
-  public ICharacterRenderer CreateCharacterRenderer() => (ICharacterRenderer) null;
+      public IObjectRenderer CreateObjectRenderer() => (IObjectRenderer) null;
 
-  public IWaterRenderer CreateWaterRenderer() => (IWaterRenderer) null;
+      public ICharacterRenderer CreateCharacterRenderer() => (ICharacterRenderer) null;
 
-  public IHeatRenderer CreateHeatRenderer() => (IHeatRenderer) null;
+      public IWaterRenderer CreateWaterRenderer() => (IWaterRenderer) null;
 
-  public INonLayerRenderer CreateNonLayerRenderer() => (INonLayerRenderer) null;
+      public IHeatRenderer CreateHeatRenderer() => (IHeatRenderer) null;
 
-  public IMaskRenderer CreateMaskRenderer() => (IMaskRenderer) null;
+      public INonLayerRenderer CreateNonLayerRenderer() => (INonLayerRenderer) null;
+
+      public IMaskRenderer CreateMaskRenderer() => (IMaskRenderer) null;
+    }
 }
