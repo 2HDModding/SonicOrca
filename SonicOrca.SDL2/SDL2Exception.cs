@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SonicOrca.SDL2.SDL2Exception
 // Assembly: SonicOrca.SDL2, Version=2.0.1012.10520, Culture=neutral, PublicKeyToken=null
 // MVID: 8E58CAA6-91C2-4B5A-9120-3E146868C58C
@@ -8,35 +8,36 @@ using SDL2;
 using System;
 using System.Runtime.Serialization;
 
-#nullable disable
-namespace SonicOrca.SDL2;
-
-[Serializable]
-public class SDL2Exception : Exception
+namespace SonicOrca.SDL2
 {
-  public SDL2Exception()
-  {
-  }
 
-  public SDL2Exception(string message)
-    : base(message)
-  {
-  }
+    [Serializable]
+    public class SDL2Exception : Exception
+    {
+      public SDL2Exception()
+      {
+      }
 
-  public SDL2Exception(string message, Exception inner)
-    : base(message, inner)
-  {
-  }
+      public SDL2Exception(string message)
+        : base(message)
+      {
+      }
 
-  protected SDL2Exception(SerializationInfo info, StreamingContext context)
-    : base(info, context)
-  {
-  }
+      public SDL2Exception(string message, Exception inner)
+        : base(message, inner)
+      {
+      }
 
-  public static SDL2Exception FromError() => new SDL2Exception(SDL.SDL_GetError());
+      protected SDL2Exception(SerializationInfo info, StreamingContext context)
+        : base(info, context)
+      {
+      }
 
-  public static SDL2Exception FromError(string basicMessage)
-  {
-    return new SDL2Exception(basicMessage + Environment.NewLine + SDL.SDL_GetError());
-  }
+      public static SDL2Exception FromError() => new SDL2Exception(SDL.SDL_GetError());
+
+      public static SDL2Exception FromError(string basicMessage)
+      {
+        return new SDL2Exception(basicMessage + Environment.NewLine + SDL.SDL_GetError());
+      }
+    }
 }
